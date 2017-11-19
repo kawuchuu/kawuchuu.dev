@@ -83,6 +83,11 @@
         .nightModeText {
             color: #fff;
         }
+        .button1-active, .button2-active {
+            background: #373737 !important;
+            box-shadow: 0px 3px 12px rgba(0,0,0,.65);
+        }
+        
     </style>
     <script>
         function nightMode() {
@@ -103,6 +108,16 @@
             document.getElementById("textnmbutton").innerHTML = "Night Mode";
             document.getElementById("meltdown-link").style.color = "#2d2d2d";
         }
+        function imageButton1() {
+            document.getElementById('image-main').src='./lakeside-poly.png';
+            document.getElementById('button1').classList.add('button1-active');
+            document.getElementById('button2').classList.remove('button2-active');
+        }
+        function imageButton2() {
+            document.getElementById('image-main').src='./ipad_glitch.png';
+            document.getElementById('button2').classList.add('button2-active');
+            document.getElementById('button1').classList.remove('button1-active');
+        }
     </script>
 </head>
 <body style="transition-duration: .25s">
@@ -111,8 +126,8 @@
     <a style="color:#2d2d2d" href="jassie_meltdown/meltdownHome.html" id="meltdown-link">Click here to visit the Jassie Meltdown page</a>
     <p style="font-size: 20px; margin-top: 40px">Here are some random photos for you to enjoy...</p>
     <img src="lakeside-poly.png" id="image-main">
-    <button class="center buttons" onclick="document.getElementById('image-main').src='./lakeside-poly.png'">1</button>
-    <button class="center buttons" onclick="document.getElementById('image-main').src='./ipad_glitch.png';">2</button>
+    <button class="center buttons button1-active" id="button1" onclick="imageButton1()">1</button>
+    <button class="center buttons" id="button2" onclick="imageButton2()">2</button>
     <div class="nightButton" onclick="nightMode()" id="nmtext">
         <img src="night-md-icon.svg" style="padding-top: 20px; width:35px; height: auto;" id="nmicon">
         <p style="font-size: 14px; color: #fff" id="textnmbutton">Night mode</p>
