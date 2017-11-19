@@ -19,13 +19,12 @@
             display: block;
             text-decoration: none;
         }
-        .meltdown-link:hover {
+        #meltdown-link:hover {
             transition-duration: .25s;
-            opacity: .65;
+            opacity: .85;
         }
-        .meltdown-link {
+        #meltdown-link {
             transition-duration: .25s;
-            color: #495b77;
         }
         #image-main {
             display: block;
@@ -40,7 +39,7 @@
             margin: 0 auto;
         }
         .buttons {
-            background-color: #495b77;
+            background-color: #2d2d2d;
             border-width: 0px;
             color: #ffffff;
             font-family: 'Raleway', sans-serif;
@@ -55,10 +54,12 @@
             text-align: center;
             transition-duration: .25s;
             margin-bottom: 30px;
+            box-shadow: 0px 2px 7px rgba(0,0,0,.65);
         }
         .buttons:hover {
             transition-duration: .25s;
-            opacity: .65;
+            box-shadow: 0px 3px 12px rgba(0,0,0,.65);
+            background-color: #373737;
         }
         body {
             text-align: center; 
@@ -72,6 +73,12 @@
             bottom: 20px;
             position: fixed;
             cursor: hand;
+            box-shadow: 0px 3px 10px rgba(0,0,0,.65);
+            transition-duration: .25s;
+        }
+        .nightButton:hover {
+            box-shadow: 0px 5px 20px rgba(0,0,0,.65);
+            background-color: #373737;
         }
         .nightModeText {
             color: #fff;
@@ -85,9 +92,7 @@
             document.body.style.background = '#1e1e1e';
             document.getElementById("nmtext").setAttribute("onClick", "lightMode()");
             document.getElementById("textnmbutton").innerHTML = "Light Mode";
-            document.getElementById("textnmbutton").style.color = "#000";
-            document.getElementById("nmtext").style.background = "#e2e2e2";
-            document.getElementById("nmicon").style.filter = "brightness(0)";
+            document.getElementById("meltdown-link").style.color = "#c2c2c2";
         }
         function lightMode() {
             document.getElementsByTagName('p')[0].style.color = '#000';
@@ -96,16 +101,14 @@
             document.body.style.background = '#fff';
             document.getElementById("nmtext").setAttribute("onClick", "nightMode()");
             document.getElementById("textnmbutton").innerHTML = "Night Mode";
-            document.getElementById("textnmbutton").style.color = "#fff";
-            document.getElementById("nmtext").style.background = "#2d2d2d";
-            document.getElementById("nmicon").style.filter = "brightness(1)";
+            document.getElementById("meltdown-link").style.color = "#2d2d2d";
         }
     </script>
 </head>
-<body>
+<body style="transition-duration: .25s">
     <h1>Welcome!</h1>
     <p>Nothing really here at the moment...</p>
-    <a href="jassie_meltdown/meltdownHome.html" class="meltdown-link">Click here to visit the Jassie Meltdown page</a>
+    <a style="color:#2d2d2d" href="jassie_meltdown/meltdownHome.html" id="meltdown-link">Click here to visit the Jassie Meltdown page</a>
     <p style="font-size: 20px; margin-top: 40px">Here are some random photos for you to enjoy...</p>
     <img src="lakeside-poly.png" id="image-main">
     <button class="center buttons" onclick="document.getElementById('image-main').src='./lakeside-poly.png'">1</button>
