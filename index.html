@@ -1,0 +1,117 @@
+<!Temporary. Not sure what to add yet :P>
+<html>
+<head>
+    <title>projsh_</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        p,h1,a {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 75px;
+            padding-top: 30px;
+        }
+        p,a {
+            font-size: 30px;
+            display: block;
+            text-decoration: none;
+        }
+        .meltdown-link:hover {
+            transition-duration: .25s;
+            opacity: .65;
+        }
+        .meltdown-link {
+            transition-duration: .25s;
+            color: #495b77;
+        }
+        #image-main {
+            display: block;
+            margin: 0 auto;
+            margin-top: 30px;
+            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
+        }
+        .center {
+            display: block;
+            margin: 0 auto;
+        }
+        .buttons {
+            background-color: #495b77;
+            border-width: 0px;
+            color: #ffffff;
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px;
+            width: 40px;
+            height: 34px;
+            margin-top: 20px;
+            border-radius: 5px;
+            outline: 0;
+            cursor: hand;
+            display: inline-block;
+            text-align: center;
+            transition-duration: .25s;
+            margin-bottom: 30px;
+        }
+        .buttons:hover {
+            transition-duration: .25s;
+            opacity: .65;
+        }
+        body {
+            text-align: center; 
+        }
+        .nightButton {
+            background-color: #2d2d2d;
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            left: 20px;
+            bottom: 20px;
+            position: fixed;
+            cursor: hand;
+        }
+        .nightModeText {
+            color: #fff;
+        }
+    </style>
+    <script>
+        function nightMode() {
+            document.getElementsByTagName('p')[0].style.color = '#fff';
+            document.getElementsByTagName('p')[1].style.color = '#fff';
+            document.getElementsByTagName('h1')[0].style.color = '#fff';
+            document.body.style.background = '#1e1e1e';
+            document.getElementById("nmtext").setAttribute("onClick", "lightMode()");
+            document.getElementById("textnmbutton").innerHTML = "Light Mode";
+            document.getElementById("textnmbutton").style.color = "#000";
+            document.getElementById("nmtext").style.background = "#e2e2e2";
+            document.getElementById("nmicon").style.filter = "brightness(0)";
+        }
+        function lightMode() {
+            document.getElementsByTagName('p')[0].style.color = '#000';
+            document.getElementsByTagName('p')[1].style.color = '#000';
+            document.getElementsByTagName('h1')[0].style.color = '#000';
+            document.body.style.background = '#fff';
+            document.getElementById("nmtext").setAttribute("onClick", "nightMode()");
+            document.getElementById("textnmbutton").innerHTML = "Night Mode";
+            document.getElementById("textnmbutton").style.color = "#fff";
+            document.getElementById("nmtext").style.background = "#2d2d2d";
+            document.getElementById("nmicon").style.filter = "brightness(1)";
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>Nothing really here at the moment...</p>
+    <a href="jassie_meltdown/meltdownHome.html" class="meltdown-link">Click here to visit the Jassie Meltdown page</a>
+    <p style="font-size: 20px; margin-top: 40px">Here are some random photos for you to enjoy...</p>
+    <img src="lakeside-poly.png" id="image-main">
+    <button class="center buttons" onclick="document.getElementById('image-main').src='./lakeside-poly.png'">1</button>
+    <button class="center buttons" onclick="document.getElementById('image-main').src='./ipad_glitch.png';">2</button>
+    <div class="nightButton" onclick="nightMode()" id="nmtext">
+        <img src="night-md-icon.svg" style="padding-top: 20px; width:35px; height: auto;" id="nmicon">
+        <p style="font-size: 14px; color: #fff" id="textnmbutton">Night mode</p>
+    </div>
+</body>
