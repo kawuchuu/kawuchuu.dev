@@ -1,94 +1,11 @@
-<!--Temporary. Not sure what to add yet :P-->
+<!--lol this is stupid-->
 <html>
 <head>
     <title>projsh_</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link href="main.scss" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        p,h1,a {
-            font-family: 'Raleway', sans-serif;
-            text-align: center;
-        }
-        h1 {
-            font-size: 75px;
-            padding-top: 30px;
-        }
-        p,a {
-            font-size: 30px;
-            display: block;
-            text-decoration: none;
-        }
-        #meltdown-link:hover {
-            transition-duration: .25s;
-            opacity: .85;
-        }
-        #meltdown-link {
-            transition-duration: .25s;
-        }
-        #image-main {
-            display: block;
-            margin: 0 auto;
-            margin-top: 30px;
-            border-radius: 15px;
-            max-width: 100%;
-            height: auto;
-        }
-        .center {
-            display: block;
-            margin: 0 auto;
-        }
-        .buttons {
-            background-color: #2d2d2d;
-            border-width: 0px;
-            color: #ffffff;
-            font-family: 'Raleway', sans-serif;
-            font-size: 24px;
-            width: 40px;
-            height: 34px;
-            margin-top: 20px;
-            border-radius: 5px;
-            outline: 0;
-            cursor: hand;
-            display: inline-block;
-            text-align: center;
-            transition-duration: .25s;
-            margin-bottom: 30px;
-            box-shadow: 0px 2px 7px rgba(0,0,0,.65);
-        }
-        .buttons:hover {
-            transition-duration: .25s;
-            box-shadow: 0px 3px 12px rgba(0,0,0,.65);
-            background-color: #373737;
-        }
-        body {
-            text-align: center; 
-        }
-        .nightButton {
-            background-color: #2d2d2d;
-            width: 100px;
-            height: 100px;
-            border-radius: 5px;
-            left: 20px;
-            bottom: 20px;
-            position: fixed;
-            cursor: hand;
-            box-shadow: 0px 3px 10px rgba(0,0,0,.65);
-            transition-duration: .25s;
-        }
-        .nightButton:hover {
-            box-shadow: 0px 5px 20px rgba(0,0,0,.65);
-            background-color: #373737;
-        }
-        .nightModeText {
-            color: #fff;
-        }
-        .button1-active, .button2-active {
-            background: #373737 !important;
-            box-shadow: 0px 3px 12px rgba(0,0,0,.65);
-        }
-        
-    </style>
     <script>
         function nightMode() {
             document.getElementsByTagName('p')[0].style.color = '#fff';
@@ -96,8 +13,7 @@
             document.getElementsByTagName('h1')[0].style.color = '#fff';
             document.body.style.background = '#1e1e1e';
             document.getElementById("nmtext").setAttribute("onClick", "lightMode()");
-            document.getElementById("textnmbutton").innerHTML = "Light Mode";
-            document.getElementById("meltdown-link").style.color = "#c2c2c2";
+            document.getElementById("textnmbutton").innerHTML = "Light mode";
         }
         function lightMode() {
             document.getElementsByTagName('p')[0].style.color = '#000';
@@ -105,8 +21,7 @@
             document.getElementsByTagName('h1')[0].style.color = '#000';
             document.body.style.background = '#fff';
             document.getElementById("nmtext").setAttribute("onClick", "nightMode()");
-            document.getElementById("textnmbutton").innerHTML = "Night Mode";
-            document.getElementById("meltdown-link").style.color = "#2d2d2d";
+            document.getElementById("textnmbutton").innerHTML = "Night mode";
         }
         function imageButton1() {
             document.getElementById('image-main').src='./lakeside-poly.png';
@@ -123,11 +38,12 @@
 <body style="transition-duration: .25s">
     <h1>Welcome!</h1>
     <p>Nothing really here at the moment...</p>
-    <a style="color:#2d2d2d" href="jassie_meltdown/meltdownHome.html" id="meltdown-link">Click here to visit the Jassie Meltdown page</a>
-    <p style="font-size: 20px; margin-top: 40px">Here are some random photos for you to enjoy...</p>
+    <p style="font-size: 20px; margin-top: 40px">Random Images</p>
     <img src="lakeside-poly.png" id="image-main">
-    <button class="center buttons button1-active" id="button1" onclick="imageButton1()">1</button>
-    <button class="center buttons" id="button2" onclick="imageButton2()">2</button>
+    <div style="text-align: center">
+        <button class="buttons button1-active" id="button1" onclick="imageButton1()">1</button>
+        <button class="buttons" id="button2" onclick="imageButton2()">2</button>
+    </div>
     <div class="nightButton" onclick="nightMode()" id="nmtext">
         <img src="night-md-icon.svg" style="padding-top: 20px; width:35px; height: auto;" id="nmicon">
         <p style="font-size: 14px; color: #fff" id="textnmbutton">Night mode</p>
