@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'Panton Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Panton Bold'), url('Panton-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Panton';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Panton'), url('Panton-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Panton Black';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Panton Black'), url('Panton-Black.woff') format('woff');
+}
+
+body {
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    background-image: url(bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Panton, Roboto, sans-serif;
+    color: #ffffff;
+    text-shadow: 0px 0px 15px rgba(0,0,0,.25);
+}
+
+.heading {
+    font-size: 65px;
+    text-align: center;
+    font-family: Panton Black;
+    padding-top: 10px;
+    text-shadow: 0px 0px 35px rgba(0,0,0,.25);
+    display: inline-block;
+    position: relative;
+    bottom: 8px
+}
+
+.heading-img {
+    display: inline-block;
+    height: 65px;
+    border-radius: 65px;
+    box-shadow: 0px 0px 35px rgba(0,0,0,.25)
+}
+
+.subheading {
+    font-size: 40px;
+    font-family: Panton Black;
+    padding-top: 20px;
+    text-shadow: 0px 0px 35px rgba(0,0,0,.25);
+}
+
+.banner-title {
+    width: 100%;
+    height: 100;
+    background: linear-gradient(rgba(0, 0, 0, 0.25),rgba(0,0,0,0));
+    padding-bottom: 25px;
+}
+
+.button-icon {
+    height: 25px;
+    margin-left: 10px;
+    margin-top: 6px;
+    display: inline-block;
+    position: relative;
+    left: 3;
+    top: 2;
+}
+
+.button {
+    height: 40px;
+    width: 150px;
+    margin-bottom: 20px;
+    text-align: left;
+    border-radius: 6px;
+    display: block;
+    transition-duration: .25s;
+    box-shadow: 0px 2px 7px rgba(0,0,0,.35)
+}
+
+.button:hover {
+    filter: brightness(1.1);
+    transition-duration: .25s;
+    box-shadow: 0px 3px 15px rgba(0,0,0,.35)
+}
+
+.button-text {
+    display: inline-block;
+    text-align: right;
+    margin-left: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    bottom: 4;
+    color: #ffffff;
+    font-family: Panton Bold;
+}
+
+.info-heading {
+    font-family: Panton Bold;
+    font-size: 23px;
+    margin-top: 40px;
+}
+
+.table-head {
+    font-size: 20px;
+    font-family: Panton Bold;
+}
+
+th {
+    border-bottom: 3px solid rgba(255,255,255,.5);
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 2px solid rgba(255,255,255,.25)
+}
+
+table {
+    border-collapse: collapse;
+}
+
+ul {
+    padding-left: 0;
+}
+
+ul li {
+    list-style-position: inside;
+    padding-top: 20px;
+}
+
+li a {
+    text-decoration: none;
+    opacity: .65;
+    color: #ffffff;
+    transition-duration: .25s;
+}
+
+li a:hover {
+    transition-duration: .25s;
+    opacity: .45
+}
+
+footer {
+    font-size: 12px;
+    margin-bottom: 20px;
+}
