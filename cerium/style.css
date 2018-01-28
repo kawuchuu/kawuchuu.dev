@@ -2,21 +2,21 @@
     font-family: 'Panton Bold';
     font-style: normal;
     font-weight: normal;
-    src: local('Panton Bold'), url('Panton-Bold.woff') format('woff');
+    src: local('Panton Bold'), url('../fonts/Panton-Bold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Panton';
     font-style: normal;
     font-weight: normal;
-    src: local('Panton'), url('Panton-Regular.woff') format('woff');
+    src: local('Panton'), url('../fonts/Panton-Regular.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Panton Black';
     font-style: normal;
     font-weight: normal;
-    src: local('Panton Black'), url('Panton-Black.woff') format('woff');
+    src: local('Panton Black'), url('../fonts/Panton-Black.woff') format('woff');
 }
 
 html {
