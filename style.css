@@ -19,6 +19,15 @@
     src: local('Panton Black'), url('./fonts/Panton-Black.woff') format('woff');
 }
 
+@-webkit-keyframes topBarMove {
+    from {
+        top: -70px;
+    }
+    to {
+        top: 0px;
+    }
+}
+
 @keyframes topBarMove {
     from {
         top: -70px;
@@ -65,31 +74,49 @@ body {
 .cerium-project-link {
     width: 200px;
     height: 200px;
+    -webkit-transition: .25s;
+    -o-transition: .25s;
     transition: .25s;
     border: solid 0px rgba(255,255,255,.5);
     border-radius: 200px;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 10px rgba(0,0,0,.25);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.25);
+            box-shadow: 0px 0px 10px rgba(0,0,0,.25);
 }
 
 .cerium-border {
     border: solid 10px rgba(255,255,255,.5);
+    -webkit-transition: .25s;
+    -o-transition: .25s;
     transition: .25s;
-    box-shadow: 0px 0px 30px rgba(0,0,0,.25);
+    -webkit-box-shadow: 0px 0px 30px rgba(0,0,0,.25);
+            box-shadow: 0px 0px 30px rgba(0,0,0,.25);
 }
 
 .top-bar {
     width: 100%;
     height: 70px;
+    background: -webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.45)),to(rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.45),rgba(0,0,0,0));
+    background: -o-linear-gradient(rgba(0, 0, 0, 0.45),rgba(0,0,0,0));
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0.45),rgba(0,0,0,0));
     background: linear-gradient(rgba(0, 0, 0, 0.45),rgba(0,0,0,0));
     position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    animation: topBarMove .25s ease-out;
-    transition-duration: .25s;
+    -webkit-animation: topBarMove .25s ease-out;
+            animation: topBarMove .25s ease-out;
+    -webkit-transition-duration: .25s;
+         -o-transition-duration: .25s;
+            transition-duration: .25s;
 }
 
 .hidden {
-    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+            transform: translateY(-100%);
 }
 
 .top-bar-name {
@@ -110,7 +137,8 @@ body {
     border-radius: 50px;
     margin-left: 19px;
     margin-top: 5px;
-    box-shadow: 0px 0px 5px rgba(0,0,0,.35)
+    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.35);
+            box-shadow: 0px 0px 5px rgba(0,0,0,.35)
 }
 
 .right-tabs {
@@ -126,13 +154,17 @@ body {
 
 .hide {
     opacity: 0;
-    transition-duration: .25s
+    -webkit-transition-duration: .25s;
+         -o-transition-duration: .25s;
+            transition-duration: .25s
 }
 
 .cerium-description {
     position: relative;
     bottom: 125;
-    transition-duration: .35s;
+    -webkit-transition-duration: .35s;
+         -o-transition-duration: .35s;
+            transition-duration: .35s;
     z-index: -1;
     opacity: 0;
     font-size: 20px
@@ -141,6 +173,8 @@ body {
 .cerium-desc-text-hover {
     position: relative;
     bottom: 45;
-    transition-duration: .35s;
+    -webkit-transition-duration: .35s;
+         -o-transition-duration: .35s;
+            transition-duration: .35s;
     opacity: 1
 }
