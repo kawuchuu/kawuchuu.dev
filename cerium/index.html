@@ -3,8 +3,18 @@
         <title>Home - Cerium</title>
         <link href="style.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../libraries/jquery-3.3.1.min.js"></script>
+        <script src="../libraries/jquery-ui.min.js"></script>
     </head>
     <body>
+        <div class="top-bar" id="topBar">
+            <a class="home-link" href="../index.html">
+                <div class="left-name">
+                    <img class="top-bar-name-icon" src="../icon_watercolour.png">
+                    <span class="top-bar-name">PROJSH_</span>
+                </div>
+            </a>
+        </div>
         <div class="banner-title">
             <center>
                 <img class="heading-img" src="https://images.discordapp.net/avatars/300513436675080205/4a724185b32bae860823284862e59f42.png?size=128">
@@ -131,5 +141,13 @@
                 <p>Copyright &copy; Joshua Walker 2018</p>
             </footer>
         </center>
+        <script>
+            var prev = 0;
+            $(window).on('scroll', function(){
+                var scrollTop = $(window).scrollTop();
+                $('#topBar').toggleClass('hidden', scrollTop > prev);
+                prev = scrollTop;
+            })
+        </script>
     </body>
 </html>
