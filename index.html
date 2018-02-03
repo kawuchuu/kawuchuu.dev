@@ -8,13 +8,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body style="transition-duration: .20s">
-        <center>
-            <div class="top-bar" id="topBar">
+        <div class="top-bar" id="topBar">
                 <div class="left-name">
+                    <a onclick="openMenu()">
+                        <img class="left-name-dropdown" id="menuDropdown" src="./m_dropdown.svg"></img>
+                    </a>
                     <img class="top-bar-name-icon" src="icon_watercolour.png">
                     <span class="top-bar-name">PROJSH_</span>
                 </div>
+                <div class="name-dropdown">
+                    <ul class="dropdown-list">
+                        <a href="./cerium/index.html">
+                            <li>
+                                <img src="./cerium-icon.png" class="dropdown-text-icon">
+                                <p class="dropdown-text">Cerium</p>
+                            </li>
+                        </a>
+                        <a href="https://www.github.com/projsh">
+                            <li>
+                                <img src="./github-icon.svg" class="dropdown-text-icon">
+                                <p class="dropdown-text">GitHub Profile</p>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
             </div>
+        <center>
             <h1 class="heading">Hey there!</h1>
             <h3 class="description">My name is Josh (projsh_) and I'm a relatively new developer from Australia.</br>I'm currently working on Cerium, my Discord bot.</h3>
             <h1 class="subheading">Projects</h1>
@@ -44,6 +63,14 @@
                 var scrollTop = $(window).scrollTop();
                 $('#topBar').toggleClass('hidden', scrollTop > prev);
                 prev = scrollTop;
+            });
+            function openMenu() {
+                $('div.name-dropdown').addClass('name-dropdown-active')
+                $('img.left-name-dropdown').addClass('left-name-dropdown-active')
+            }
+            $('center, .left-name-dropdown').click(function() {
+                $('div.name-dropdown').removeClass('name-dropdown-active')
+                $('img.left-name-dropdown').removeClass('left-name-dropdown-active')
             })
         </script>
     </body>

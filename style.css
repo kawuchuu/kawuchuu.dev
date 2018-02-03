@@ -45,7 +45,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15)
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
 
 .heading {
@@ -74,9 +74,9 @@ body {
 .cerium-project-link {
     width: 200px;
     height: 200px;
-    -webkit-transition: .25s;
-    -o-transition: .25s;
-    transition: .25s;
+    -webkit-transition: .20s;
+    -o-transition: .20s;
+    transition: .20s;
     border: solid 0px rgba(255,255,255,.5);
     border-radius: 200px;
     -webkit-box-sizing: border-box;
@@ -87,9 +87,9 @@ body {
 
 .cerium-border {
     border: solid 10px rgba(255,255,255,.5);
-    -webkit-transition: .25s;
-    -o-transition: .25s;
-    transition: .25s;
+    -webkit-transition: .20s;
+    -o-transition: .20s;
+    transition: .20s;
     -webkit-box-shadow: 0px 0px 30px rgba(0,0,0,.25);
             box-shadow: 0px 0px 30px rgba(0,0,0,.25);
 }
@@ -106,17 +106,19 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-animation: topBarMove .25s ease-out;
-            animation: topBarMove .25s ease-out;
-    -webkit-transition-duration: .25s;
-         -o-transition-duration: .25s;
-            transition-duration: .25s;
+    -webkit-animation: topBarMove .20s ease-out;
+            animation: topBarMove .20s ease-out;
+    -webkit-transition-duration: .20s;
+         -o-transition-duration: .20s;
+            transition-duration: .20s;
 }
 
 .hidden {
     -webkit-transform: translateY(-100%);
         -ms-transform: translateY(-100%);
             transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
 }
 
 .top-bar-name {
@@ -149,14 +151,24 @@ body {
 }
 
 .left-name {
-    text-align: left
+    text-align: left;
+}
+
+.left-name-dropdown {
+    transform: rotate(-90deg);
+    height: 35px;
+    position: relative;
+    top: 8;
+    left: 10;
+    transition-duration: .20s;
+    cursor: hand
 }
 
 .hide {
     opacity: 0;
-    -webkit-transition-duration: .25s;
-         -o-transition-duration: .25s;
-            transition-duration: .25s
+    -webkit-transition-duration: .20s;
+         -o-transition-duration: .20s;
+            transition-duration: .20s
 }
 
 .cerium-description {
@@ -177,4 +189,67 @@ body {
          -o-transition-duration: .35s;
             transition-duration: .35s;
     opacity: 1
+}
+
+.name-dropdown {
+    width: 185px;
+    height: 102px;
+    background: rgba(255,255,255,.75);
+    border-radius: 5px;
+    border-width: 5px;
+    border: solid rgba(226,226,226,.65);
+    position: absolute;
+    top: 60;
+    left: 15;
+    color: #3d3d3d;
+    text-align: left;
+    font-family: Panton Bold;
+    visibility: hidden;
+    transition-duration: .20s;
+    opacity: 0;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.25);
+}
+
+.dropdown-text {
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.dropdown-text-icon {
+    position: relative;
+    height: 25px;
+    border-radius: 25px;
+    margin-left: 15px;
+    top: 5
+}
+
+.dropdown-list {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.name-dropdown-active {
+    visibility: visible !important;
+    transition-duration: .20s;
+    opacity: 1;
+    color: #3d3d3d;
+}
+
+.left-name-dropdown-active {
+    transform: rotate(0deg);
+    transition-duration: .20s;
+}
+
+li, li:hover {
+    transition-duration: .20s;
+}
+
+li:hover {
+    background-color: rgba(200,200,200,.5);
+}
+
+ul.dropdown-list a {
+    text-decoration: none;
+    color: #3d3d3d;
 }
