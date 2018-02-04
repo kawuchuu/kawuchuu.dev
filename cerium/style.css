@@ -294,7 +294,7 @@ li, li:hover {
     transition-duration: .20s;
 }
 
-li:hover {
+ul.dropdown-list a li:hover {
     background-color: rgba(200,200,200,.5);
 }
 
