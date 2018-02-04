@@ -155,23 +155,23 @@ table {
     border-collapse: collapse;
 }
 
-ul {
+center ul {
     padding-left: 0;
 }
 
-ul li {
+center ul li {
     list-style-position: inside;
     padding-top: 20px;
 }
 
-li a {
+center li a {
     text-decoration: none;
     opacity: .65;
     color: #ffffff;
     transition-duration: .25s;
 }
 
-li a:hover {
+center li a:hover {
     transition-duration: .25s;
     opacity: .45
 }
@@ -204,6 +204,7 @@ footer {
     -webkit-transform: translateY(-100%);
         -ms-transform: translateY(-100%);
             transform: translateY(-100%);
+            opacity: 0;
 }
 
 .top-bar-name {
@@ -222,7 +223,7 @@ footer {
     top: 9;
     right: 5;
     border-radius: 50px;
-    margin-left: 19px;
+    margin-left: 23px;
     margin-top: 5px;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.35);
             box-shadow: 0px 0px 5px rgba(0,0,0,.35)
@@ -237,4 +238,78 @@ footer {
 .home-link:hover {
     opacity: .75;
     transition: .25s;
+}
+
+.name-dropdown {
+    width: 185px;
+    height: 102px;
+    background: rgba(255,255,255,.75);
+    border-radius: 5px;
+    border-width: 5px;
+    border: solid rgba(226,226,226,.65);
+    position: absolute;
+    top: 60;
+    left: 15;
+    color: #3d3d3d;
+    text-align: left;
+    font-family: Panton Bold;
+    visibility: hidden;
+    transition-duration: .20s;
+    opacity: 0;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.25);
+}
+
+.dropdown-text {
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.dropdown-text-icon {
+    position: relative;
+    height: 25px;
+    border-radius: 25px;
+    margin-left: 15px;
+    top: 5
+}
+
+.dropdown-list {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.name-dropdown-active {
+    visibility: visible !important;
+    transition-duration: .20s;
+    opacity: 1;
+    color: #3d3d3d;
+}
+
+.left-name-dropdown-active {
+    transform: rotate(0deg) !important;
+    transition-duration: .20s;
+}
+
+li, li:hover {
+    transition-duration: .20s;
+}
+
+li:hover {
+    background-color: rgba(200,200,200,.5);
+}
+
+ul.dropdown-list a {
+    text-decoration: none;
+    color: #3d3d3d;
+}
+
+.left-name-dropdown {
+    transform: rotate(-90deg);
+    height: 35px;
+    position: relative;
+    top: 8;
+    left: 10;
+    transition-duration: .20s;
+    cursor: hand;
+    margin-top: 5px
 }

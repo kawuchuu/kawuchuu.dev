@@ -1,6 +1,7 @@
 <html>
     <head>
-        <title>Home - Cerium</title>
+        <title>Cerium</title>
+        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
         <link href="style.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="../libraries/jquery-3.3.1.min.js"></script>
@@ -8,12 +9,31 @@
     </head>
     <body>
         <div class="top-bar" id="topBar">
-            <a class="home-link" href="../index.html">
+            <a onclick="openMenu()">
+                <img class="left-name-dropdown" id="menuDropdown" src="../m_dropdown.svg"></img>
+            </a>
+            <!--<a class="home-link" href="../index.html">-->
                 <div class="left-name">
                     <img class="top-bar-name-icon" src="../icon_watercolour.png">
                     <span class="top-bar-name">PROJSH_</span>
                 </div>
-            </a>
+            <!--</a>-->
+            <div class="name-dropdown">
+                <ul class="dropdown-list">
+                    <a href="../index.html">
+                        <li>
+                            <img src="../icon_watercolour.png" class="dropdown-text-icon">
+                            <p class="dropdown-text">Home</p>
+                        </li>
+                    </a>
+                    <a href="https://www.github.com/projsh">
+                        <li>
+                            <img src="../github-icon.svg" class="dropdown-text-icon">
+                            <p class="dropdown-text">GitHub Profile</p>
+                        </li>
+                    </a>
+                </ul>
+            </div>
         </div>
         <div class="banner-title">
             <center>
@@ -147,6 +167,14 @@
                 var scrollTop = $(window).scrollTop();
                 $('#topBar').toggleClass('hidden', scrollTop > prev);
                 prev = scrollTop;
+            })
+            function openMenu() {
+                $('div.name-dropdown').addClass('name-dropdown-active')
+                $('img.left-name-dropdown').addClass('left-name-dropdown-active')
+            }
+            $('center, .left-name-dropdown').click(function() {
+                $('div.name-dropdown').removeClass('name-dropdown-active')
+                $('img.left-name-dropdown').removeClass('left-name-dropdown-active')
             })
         </script>
     </body>
