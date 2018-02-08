@@ -40,12 +40,13 @@
 body {
     background-image: url(./bg_landscape_blur.jpg);
     color: #fff;
-    font-family: Panton;
+    font-family: Panton, Roboto, sans-serif;
     margin: 0;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    
 }
 
 .heading {
@@ -68,7 +69,7 @@ body {
 
 .background-new {
     background-image: url(./cerium/bg.jpg);
-    opacity: .85
+    background-color: #F17F88;
 }
 
 .cerium-project-link {
@@ -193,7 +194,7 @@ body {
 
 .name-dropdown {
     width: 185px;
-    height: 102px;
+    height: 100px;
     background: rgba(255,255,255,.75);
     border-radius: 5px;
     border-width: 5px;
@@ -239,10 +240,12 @@ body {
 .left-name-dropdown-active {
     transform: rotate(0deg);
     transition-duration: .20s;
+    cursor: auto
 }
 
 li, li:hover {
     transition-duration: .20s;
+    height: 50px
 }
 
 li:hover {

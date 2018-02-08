@@ -3,6 +3,7 @@
         <title>projsh_</title>
         <link rel="shortcut icon" type="image/png" href="favicon.png"/>
         <link href="style.css" rel="stylesheet">
+        <link rel="prefetch" href="./cerium/bg.jpg">
         <script src="./libraries/jquery-3.3.1.min.js"></script>
         <script src="./libraries/jquery-ui.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,6 +63,8 @@
             $(window).on('scroll', function(){
                 var scrollTop = $(window).scrollTop();
                 $('#topBar').toggleClass('hidden', scrollTop > prev);
+                $('div.name-dropdown').removeClass('name-dropdown-active')
+                $('img.left-name-dropdown').removeClass('left-name-dropdown-active')
                 prev = scrollTop;
             });
             function openMenu() {
