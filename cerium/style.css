@@ -103,18 +103,19 @@ body {
 
 .button {
     height: 40px;
-    width: 150px;
+    width: 165px;
     margin-bottom: 20px;
     text-align: left;
     border-radius: 6px;
     display: block;
-    transition-duration: .25s;
-    box-shadow: 0px 2px 7px rgba(0,0,0,.35)
+    transition-duration: .20s;
+    box-shadow: 0px 2px 7px rgba(0,0,0,.35);
+    background-color: rgba(255,255,255,.20)
 }
 
 .button:hover {
-    filter: brightness(1.1);
-    transition-duration: .25s;
+    background-color: rgba(255,255,255,.30);
+    transition-duration: .20s;
     box-shadow: 0px 3px 15px rgba(0,0,0,.35)
 }
 
@@ -168,11 +169,11 @@ center li a {
     text-decoration: none;
     opacity: .65;
     color: #ffffff;
-    transition-duration: .25s;
+    transition-duration: .20s;
 }
 
 center li a:hover {
-    transition-duration: .25s;
+    transition-duration: .20s;
     opacity: .45
 }
 
@@ -193,11 +194,11 @@ footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-animation: topBarMove .25s ease-out;
-            animation: topBarMove .25s ease-out;
-    -webkit-transition-duration: .25s;
-         -o-transition-duration: .25s;
-            transition-duration: .25s;
+    -webkit-animation: topBarMove .20s ease-out;
+            animation: topBarMove .20s ease-out;
+    -webkit-transition-duration: .20s;
+         -o-transition-duration: .20s;
+            transition-duration: .20s;
 }
 
 .hidden {
@@ -232,12 +233,12 @@ footer {
 .home-link {
     text-decoration: none;
     color: #fff;
-    transition: .25s;
+    transition: .20s;
 }
 
 .home-link:hover {
     opacity: .75;
-    transition: .25s;
+    transition: .20s;
 }
 
 .name-dropdown {

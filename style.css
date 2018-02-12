@@ -107,8 +107,8 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-animation: topBarMove .20s ease-out;
-            animation: topBarMove .20s ease-out;
+    -webkit-animation: topBarMove .20s ease;
+            animation: topBarMove .20s ease;
     -webkit-transition-duration: .20s;
          -o-transition-duration: .20s;
             transition-duration: .20s;
@@ -175,9 +175,9 @@ body {
 .cerium-description {
     position: relative;
     bottom: 125;
-    -webkit-transition-duration: .35s;
-         -o-transition-duration: .35s;
-            transition-duration: .35s;
+    -webkit-transition-duration: .20s;
+         -o-transition-duration: .20s;
+            transition-duration: .20s;
     z-index: -1;
     opacity: 0;
     font-size: 20px
@@ -186,9 +186,9 @@ body {
 .cerium-desc-text-hover {
     position: relative;
     bottom: 45;
-    -webkit-transition-duration: .35s;
-         -o-transition-duration: .35s;
-            transition-duration: .35s;
+    -webkit-transition-duration: .20s;
+         -o-transition-duration: .20s;
+            transition-duration: .20s;
     opacity: 1
 }
 
