@@ -1,80 +1,23 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>projsh_</title>
-        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
-        <link href="style.css" rel="stylesheet">
-        <link rel="prefetch" href="./cerium/bg.jpg">
-        <script src="./libraries/jquery-3.3.1.min.js"></script>
-        <script src="./libraries/jquery-ui.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body style="transition-duration: .20s">
-        <div class="top-bar" id="topBar">
-                <div class="left-name">
-                    <a onclick="openMenu()">
-                        <img class="left-name-dropdown" id="menuDropdown" src="./m_dropdown.svg"></img>
-                    </a>
-                    <img class="top-bar-name-icon" src="icon_watercolour.png">
-                    <span class="top-bar-name">PROJSH_</span>
-                </div>
-                <div class="name-dropdown">
-                    <ul class="dropdown-list">
-                        <a href="./cerium/index.html">
-                            <li>
-                                <img src="./cerium-icon.png" class="dropdown-text-icon">
-                                <p class="dropdown-text">Cerium</p>
-                            </li>
-                        </a>
-                        <a href="https://www.github.com/projsh">
-                            <li>
-                                <img src="./github-icon.svg" class="dropdown-text-icon">
-                                <p class="dropdown-text">GitHub Profile</p>
-                            </li>
-                        </a>
-                    </ul>
-                </div>
-            </div>
-        <center>
-            <h1 class="heading">Hey there!</h1>
-            <h3 class="description">My name is Josh (projsh_) and I'm a relatively new developer from Australia.</br>I'm currently working on Cerium, my Discord bot.</h3>
-            <h1 class="subheading">Projects</h1>
-            <a href="./cerium/index.html">
-                <img class="cerium-project-link" src="cerium-icon.png"></img>
-            </a>
-            <h2 class="cerium-desc-heading" style="transition-duration: .25s">CERIUM</h2>
-            <div class="cerium-description">
-                <p class="cerium-desc-text">A fun little Discord bot</br>created by projsh_</p>
-            </div>
-        </center>
-        <script>
-            $('img.cerium-project-link').mouseover(function() {
-                $('body').addClass("background-new");
-                $('img.cerium-project-link').addClass("cerium-border");
-                $('h2.cerium-desc-heading').addClass("hide");
-                $('div.cerium-description').addClass('cerium-desc-text-hover');
-            })
-            $('img.cerium-project-link').mouseout(function() {
-                $('body').removeClass("background-new");
-                $('img.cerium-project-link').removeClass("cerium-border");
-                $('h2.cerium-desc-heading').removeClass("hide");
-                $('div.cerium-description').removeClass('cerium-desc-text-hover');
-            });
-            var prev = 0;
-            $(window).on('scroll', function(){
-                var scrollTop = $(window).scrollTop();
-                $('#topBar').toggleClass('hidden', scrollTop > prev);
-                $('div.name-dropdown').removeClass('name-dropdown-active')
-                $('img.left-name-dropdown').removeClass('left-name-dropdown-active')
-                prev = scrollTop;
-            });
-            function openMenu() {
-                $('div.name-dropdown').addClass('name-dropdown-active')
-                $('img.left-name-dropdown').addClass('left-name-dropdown-active')
+        <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+        <style>
+            html, body {
+                font-family: 'Dosis', sans-serif;
+                background: #141414;
+                color: #f0f0f0;
+                margin: 70px;
             }
-            $('center, .left-name-dropdown').click(function() {
-                $('div.name-dropdown').removeClass('name-dropdown-active')
-                $('img.left-name-dropdown').removeClass('left-name-dropdown-active')
-            })
-        </script>
+        </style>
+    </head>
+    <body>
+        <div class="notice-container">
+            <center>
+                <h1>This website is being rebuilt from scratch.</h1>
+                <p>Currently, there's no set release date. So sorry for any inconveniences.</p>
+            </center>
+        </div>
     </body>
 </html>

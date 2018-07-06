@@ -1,185 +1,49 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Cerium</title>
-        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
-        <link href="style.css" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../libraries/jquery-3.3.1.min.js"></script>
-        <script src="../libraries/jquery-ui.min.js"></script>
+        <title>Cerium Notice</title>
+        <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+        <style>
+            html, body {
+                font-family: 'Dosis', sans-serif;
+                background: #141414;
+                color: #f0f0f0;
+                margin: 40px;
+                margin-left: 90px;
+                margin-right: 90px;
+            }
+
+            p {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+
+            h2 {
+                margin-bottom: 10px;
+                margin-top: 30px;
+            }
+
+            @media screen and (max-width: 760px) {
+                html, body {
+                    margin: 20px;
+                }
+            }
+        </style>
     </head>
     <body>
-        <div class="top-bar" id="topBar">
-            <a onclick="openMenu()">
-                <img class="left-name-dropdown" id="menuDropdown" src="../m_dropdown.svg"></img>
-            </a>
-            <!--<a class="home-link" href="../index.html">-->
-                <div class="left-name">
-                    <img class="top-bar-name-icon" src="../icon_watercolour.png">
-                    <span class="top-bar-name">PROJSH_</span>
-                </div>
-            <!--</a>-->
-            <div class="name-dropdown">
-                <ul class="dropdown-list">
-                    <a href="../index.html">
-                        <li>
-                            <img src="../icon_watercolour.png" class="dropdown-text-icon">
-                            <p class="dropdown-text">Home</p>
-                        </li>
-                    </a>
-                    <a href="https://www.github.com/projsh">
-                        <li>
-                            <img src="../github-icon.svg" class="dropdown-text-icon">
-                            <p class="dropdown-text">GitHub Profile</p>
-                        </li>
-                    </a>
-                </ul>
-            </div>
-        </div>
-        <div class="banner-title">
+        <div class="notice-container">
             <center>
-                <img class="heading-img" src="../cerium-icon.png">
-                <span style="padding: 8px"></span>
-                <h1 class="heading">CERIUM</h1>
+                <h1 style="font-size: 42px;">Cerium's services will go offline permanently on <span style="text-decoration: underline">July 16, 2018.</span></h1>
+                <p style="margin-bottom: 60px; font-size: 14px;">Last updated: July 6, 2018.</p>
+                <h2>What will happen to Cerium's development in the coming future?</h2>
+                <p>The current version of Cerium will be discontinued, however once Cerium 3.0 is ready, I'll create a simple program that allows users to self-host Cerium.</p>
+                <h2>Why make users self-host?</h2>
+                <p>I no longer wish to continue hosting Cerium myself. I've lost all motivation to continue hosting it, so I believe self-hosting is a reliable solution that enables users to host it themselves and add it to their own servers. Users can add the bot to their own server without the fear of some random public bot logging everything they do on their server.</p>
+                <h2>Is there an expected release date?</h2>
+                <p>Currently, there's no set release date. I will keep this page updated however, so check back every so often for updates.</p>
+                <h2>Thank you all so much for the opportunity and support during Cerium's development. I wouldn't have continued development without all your support!! <3</h2>
+                <p>Expect the next release to be the best version yet!</p>
             </center>
         </div>
-        <center>
-            <h3 class="info-heading">Cerium is a fun little Discord bot created by projsh_</h3>
-            <h1 class="subheading">COMMANDS</h1>
-            <table>
-                <thead class="table-head">
-                    <tr>
-                        <th>Command</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="text-align:center">about</td>
-                        <td>Displays information about the bot.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">avatar</td>
-                        <td>Displays your avatar or another user's avatar.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">flip</td>
-                        <td>Flips a coin for you!</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">help</td>
-                        <td>Displays the help message.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">nick</td>
-                        <td>Changes your nickname.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">ping</td>
-                        <td>Replies with a message.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">rtime</td>
-                        <td>Displays the bot's response time.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">ship</td>
-                        <td>Sends you on a ship with the love of your life! (or rather someone randomly picked on the server).</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">sinfo</td>
-                        <td>Displays information about the server.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">uinfo</td>
-                        <td>Displays information about your account or another user's account.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">uptime</td>
-                        <td>Displays how long Cerium has been online without restarting.</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h1 class="subheading">MUSIC COMMANDS</h1>
-            <table>
-                <thead class="table-head">
-                    <tr>
-                        <th style="text-align:center">Command</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="text-align:center">play</td>
-                        <td>Plays a video from YouTube in your current voice channel.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">skip</td>
-                        <td>Skips a video in the queue.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">stop</td>
-                        <td>Stops the player and clears the queue.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">pause</td>
-                        <td>Pauses a video.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">resume</td>
-                        <td>Resumes a video.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center">queue</td>
-                        <td>Lists every video in the server's queue.</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h1 class="subheading">OTHER INFORMATION</h1>
-            <ul>
-                <li>Cerium is licensed under the GNU General Public License v3.0. To view the license, <a href="https://github.com/projsh/Cerium/blob/master/LICENSE" target="_blank">click here.</a></li>
-                <li>Cerium is currently under development. You may experience bugs while using this bot. If so, <a href="https://github.com/projsh/Cerium/issues" target="_blank">click here</a> to report a bug.</li>
-            </ul>
-            <div style="display: inline-block">
-                    <a href="https://discordbots.org/bot/300513436675080205" target="_blank" style="display: block; text-decoration: none;">
-                        <div class="button">
-                            <img class="button-icon" src="dbl-icon.svg">
-                            <p class="button-text">DISCORD BOTS</p>
-                        </div>
-                    </a>
-                </div>
-                <span style="padding-left: 15px; padding-right: 15px;"></span>
-                <div style="display: inline-block">
-                    <a href="https://www.github.com/projsh/Cerium" target="_blank" style="display: block; text-decoration: none; margin-top: 40px">
-                        <div class="button">
-                            <img class="button-icon" src="github-icon.svg">
-                            <p class="button-text">GITHUB REPO</p>
-                        </div>
-                    </a>
-                </div>
-                <a href="https://discordbots.org/bot/300513436675080205">
-                    <img style="display: block; padding-top: 20px; padding-bottom: 20px;" src="https://discordbots.org/api/widget/300513436675080205.svg">
-                </a>
-            <footer>
-                <p>Copyright &copy; Joshua Walker 2018</p>
-            </footer>
-        </center>
-        <script>
-            var prev = 0;
-            $(window).on('scroll', function(){
-                var scrollTop = $(window).scrollTop();
-                $('#topBar').toggleClass('hidden', scrollTop > prev);
-                $('div.name-dropdown').removeClass('name-dropdown-active')
-                $('img.left-name-dropdown').removeClass('left-name-dropdown-active')
-                prev = scrollTop;
-            })
-            function openMenu() {
-                $('div.name-dropdown').addClass('name-dropdown-active')
-                $('img.left-name-dropdown').addClass('left-name-dropdown-active')
-            }
-            $('center, .left-name-dropdown').click(function() {
-                $('div.name-dropdown').removeClass('name-dropdown-active')
-                $('img.left-name-dropdown').removeClass('left-name-dropdown-active')
-            })
-        </script>
     </body>
 </html>
