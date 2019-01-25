@@ -1,6 +1,6 @@
 ---
 ---
-$(function($) {
+/*$(function($) {
     var smoothstate = $('#smoothstate').smoothState({
         onStart: {
             duration: 250,
@@ -28,4 +28,4 @@ $(function($) {
         prefetch: true,
         blacklist: '.no-smoothstate'
     })
-});
+});*/
