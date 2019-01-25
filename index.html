@@ -1,41 +1,174 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>projsh_</title>
-        <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
-        <link rel="stylesheet" href="main.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <div class="construction-bg">
-            <center>
-                <div class="construction-warning">
-                    <div class="bg-shapes"></div>
-                    <div class="shapes-fade"></div>
-                    <div class="construction-wrapper">
-                        <h1>This website is under construction</h1>
-                        <p>
-                            The website is currently being rebuilt. Sorry for any inconveniences. Some useful links are shown below.
-                        </p>
-                        <div class="link-buttons">
-                            <a href="https://github.com/projsh">
-                                <button><svg height="22" viewBox="0 0 16 16" version="1.1" width="22" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-                                    </svg>GitHub</button>
-                            </a>
-                            <a href="./cerium/index.html">
-                                <button><svg height="22" width="16" viewBox="0 0 612.61 956.43">
-                                        <polygon class="cls-1" points="590.11 413.42 306.3 933.93 22.5 413.42 306.3 22.5 590.11 413.42" />
-                                        <line class="cls-1" x1="45.3" y1="413.93" x2="306.92" y2="560.28" />
-                                        <line class="cls-1" x1="567.92" y1="413.93" x2="306.3" y2="560.28" />
-                                        <line class="cls-1" x1="306.3" y1="49.06" x2="306.92" y2="560.28" />
-                                        <line class="cls-1" x1="306.92" y1="560.28" x2="306.3" y2="901.71" />
-                                </svg>Cerium Notice</button>
-                            </a>
-                        </div>
-                    </div>
+---
+title: Home
+layout: default
+---
+<style>
+    .main-carousel {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 250px;
+        color: #fff !important;
+    }
+
+    .audiation-carousel {
+        background-color: #9b07df;
+        background-image: linear-gradient(to right, #9b07df, #c500bb);
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+        transition: .2s;
+        box-shadow: 0px 2px 20px rgba(0,0,0,.25)
+    }
+
+    .aimage-info {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        transition: .2s;
+    }
+
+    .carousel-logo {
+        width: 250px;
+        height: 100%;
+        background-size: cover;
+        position: initial;
+        z-index: 3;
+        transition: .2s;
+    }
+
+    .audiation-logo {
+        background: url(/assets/main-logo-white.svg);
+        background-position: -65px;
+        background-repeat: no-repeat;
+        opacity: .5;
+    }
+
+    .carousel-desc {
+        display: flex;
+        align-items: center;
+        transition: .2s;
+    }
+
+    .carousel-info {
+        position: initial;
+        z-index: 3;
+        transition: .2s;
+    }
+
+    .carousel-desc h1 {
+        margin: 0 10px 0 0;
+        font-size: 38px;
+        transition: .2s;
+        text-shadow: 0px 2px 20px rgba(0,0,0,.25)
+    }
+
+    .beta-tag {
+        font-size: 12px;
+        padding: 2px 7px 2px 7px;
+        border: 2px solid white;
+        border-radius: 20px;
+        font-weight: bold;
+        box-shadow: 0px 2px 20px rgba(0,0,0,.25)
+    }
+
+    .carousel-button {
+        padding: 5px 10px 5px 10px;
+        border: none;
+        outline: none;
+        width: auto;
+        font-family: inherit;
+        font-weight: bold;
+        font-size: 18px;
+        background: rgba(255, 255, 255, .25);
+        color: inherit;
+        border-radius: 20px;
+        margin-top: 10px;
+        transition: .2s;
+    }
+
+    .carousel-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 2px 20px rgba(0, 0, 0, .25)
+    }
+
+    .project-preview {
+        height: 80%;
+        width: auto;
+        position: relative;
+        right: 25px;
+        border-radius: 5px;
+        z-index: 1;
+        transition: .2s;
+        box-shadow: 0px 2px 20px rgba(0,0,0,.25)
+    }
+
+    @media screen and (max-width: 1425px) {
+        .carousel-info {
+            position: relative;
+            right: 50px;
+        }
+    }
+
+    @media screen and (max-width: 1285px) {
+        .project-preview {
+            height: 60%
+        }
+
+        .carousel-desc h1 {
+            font-size: 26px;
+        }
+
+        .carousel-info p {
+            font-size: 14px;
+        }
+    }
+
+    @media screen and (max-width: 650px) {
+        .project-preview {
+            opacity: 0;
+        }
+    }
+
+    @media screen and (max-width: 330px) {
+        .carousel-logo {
+            opacity: 0;
+        }
+    }
+
+    .subtle-gradient {
+        background-image: linear-gradient(to right, #9b07df, #9b07df79, transparent);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 10px;
+        z-index: 2
+    }
+</style>
+<div class="text-content">
+    <h1>Hi, I'm Josh.</h1>
+    <p>I'm a self-taught developer from Australia.</p>
+    <p style="font-weight: bold"><br>THIS IS A TEMPORARY LANDING PAGE</p>
+</div>
+<div class="main-carousel">
+    <div class="audiation-carousel c-main">
+        <div class="subtle-gradient"></div>
+        <div class="aimage-info">
+            <div class="carousel-logo audiation-logo"></div>
+            <div class="carousel-info">
+                <div class="carousel-desc">
+                    <h1>Audiation 1.0</h1>
+                    <span class="beta-tag">BETA</span>
                 </div>
-            </center>
+                <p>An open-source music player built with Electron</p>
+                <button class="carousel-button">LEARN MORE</button>
+            </div>
         </div>
-    </body>
-</html>
+        <img class="project-preview" src="/assets/audiation-preview1.png">
+    </div>
+</div>

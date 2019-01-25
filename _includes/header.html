@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<div class="nav-menu-outwrapper" style="display: block">
+    <div class="nav-bg"></div>
+    <div id="nav-menu" class="nav-menu">
+        <div class="nav-cover">
+            <div class="nav-menu-wrapper">
+                <div id="navTitle" class="nav-menu-option">
+                    <p>projsh_</p>
+                </div>
+                <a href="/">
+                    <div id="home" class="nav-menu-option">
+                        <i class="material-icons">home</i>
+                        <p>Home</p>
+                    </div>
+                </a>
+                <a href="/audiation">
+                    <div id="audiationLink" class="nav-menu-option">
+                        <img src="/assets/audiation-menu.svg">
+                        <p class="img-left">Audiation</p>
+                    </div>
+                </a>
+                <a href="/cerium">
+                    <div id="cerium" class="nav-menu-option">
+                        <img width="32" height="32" src="/assets/cerium.svg">
+                        <p class="img-left">Cerium</p>
+                    </div>
+                </a>
+                <a href="/projects">
+                    <div id="projects" class="nav-menu-option">
+                        <i class="material-icons">library_books</i>
+                        <p>All Projects</p>
+                    </div>
+                </a>
+            </div>
+            <div class="footer">
+                <div class="footer-wrapper">
+                    <div>&copy; projsh_ 2019</div>
+                    <div><a href="/">Landing page</a></div>
+                    <div>More to come</div>
+                    <div onclick="toggleTheme()" id="toggleTheme">Switch theme</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="shadow-hide"></div>
+<div class="header-main">
+    <div class="header-wrapper">
+        <div class="header-main-section">
+            <i class="material-icons nav-button">menu</i>
+            <div class="header-name">projsh_</div>
+        </div>
+    </div>
+</div>
+<script>
+    isLight = false;
+    if (document.cookie.includes("theme")) {
+        if (document.cookie.includes("theme=light")) {
+            toggleTheme();
+        }
+    }
+    var isNavOpen = false;
+
+    function navOpen() {
+        isNavOpen = true;
+        $('body').addClass('body-fixed');
+        $('.shadow-hide').hide();
+        $('.nav-bg').show();
+        setTimeout(() => {
+            $('.nav-menu').css({
+                left: 0,
+            })
+            $('.nav-bg').css({
+                opacity: 1
+            })
+        }, 1);
+    }
+
+    function navClose() {
+        isNavOpen = false;
+        $('body').removeClass('body-fixed');
+        $('.nav-menu').css({
+            left: '-300px',
+        });
+        $('.nav-bg').css({
+            opacity: 0
+        })
+        setTimeout(() => {
+            $('.nav-bg').hide();
+            $('.shadow-hide').show();
+        }, 250);
+    }
+    $('.nav-button').click(function () {
+        navOpen();
+    })
+
+    $('.nav-bg').click(function () {
+        navClose();
+    });
+
+    $(window).resize(function () {
+        if ($(window).width() > 949 && isNavOpen == true) {
+            navClose();
+            $('.nav-bg').hide();
+        }
+    });
+
+    $(window).ready(function () {
+        if ($(window).width() > 949) {
+            $('.nav-bg').hide();
+        }
+    })
+
+    function toggleTheme() {
+        if (isLight) {
+            $("html").removeClass("light");
+            isLight = false;
+            document.cookie = "theme=dark; path=/";
+        } else {
+            $("html").addClass("light");
+            isLight = true;
+            document.cookie = "theme=light; path=/";
+        }
+    }
+</script>
