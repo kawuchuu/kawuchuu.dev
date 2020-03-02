@@ -1,0 +1,87 @@
+body {
+    background: url('./assets/pbg.gif');
+    color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    max-width: 960px;
+    margin: 20px 0;
+    width: 100%;
+    height: auto;
+    background: #0000ff;
+    border: double 8px #00ff00;
+}
+
+.construction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ff0000;
+}
+
+.construction img {
+    width: 38px;
+    height: 38px;
+    margin: 0 20px;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: double 8px #00ff00;
+    width: 85%;
+    text-align: center;
+}
+
+.info {
+    padding: 10px;
+}
+
+.sidebyside {
+    border-top: double 8px #00ff00;
+    display: flex;
+}
+
+.badges {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badges img {
+    margin: 10px;
+}
+
+.software-item {
+    padding: 20px;
+    width: 175px;
+}
+
+.software-item img {
+    width: 80px;
+    height: 80px;
+}
+
+.software {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.software-section, .bottom-section {
+    width: 100%;
+    border-top: double 8px #00ff00;
+}
+
+.software-item a {
+    color: #d391ff
+}

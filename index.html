@@ -1,174 +1,95 @@
----
-title: Home
-layout: default
----
-<style>
-    .main-carousel {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        height: 250px;
-        color: #fff !important;
-    }
-
-    .audiation-carousel {
-        background-color: #9b07df;
-        background-image: linear-gradient(to right, #9b07df, #c500bb);
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        overflow: hidden;
-        transition: .2s;
-        box-shadow: 0px 2px 20px rgba(0,0,0,.25)
-    }
-
-    .aimage-info {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        transition: .2s;
-    }
-
-    .carousel-logo {
-        width: 250px;
-        height: 100%;
-        background-size: cover;
-        position: initial;
-        z-index: 3;
-        transition: .2s;
-    }
-
-    .audiation-logo {
-        background: url(/assets/main-logo-white.svg);
-        background-position: -65px;
-        background-repeat: no-repeat;
-        opacity: .5;
-    }
-
-    .carousel-desc {
-        display: flex;
-        align-items: center;
-        transition: .2s;
-    }
-
-    .carousel-info {
-        position: initial;
-        z-index: 3;
-        transition: .2s;
-    }
-
-    .carousel-desc h1 {
-        margin: 0 10px 0 0;
-        font-size: 38px;
-        transition: .2s;
-        text-shadow: 0px 2px 20px rgba(0,0,0,.25)
-    }
-
-    .beta-tag {
-        font-size: 12px;
-        padding: 2px 7px 2px 7px;
-        border: 2px solid white;
-        border-radius: 20px;
-        font-weight: bold;
-        box-shadow: 0px 2px 20px rgba(0,0,0,.25)
-    }
-
-    .carousel-button {
-        padding: 5px 10px 5px 10px;
-        border: none;
-        outline: none;
-        width: auto;
-        font-family: inherit;
-        font-weight: bold;
-        font-size: 18px;
-        background: rgba(255, 255, 255, .25);
-        color: inherit;
-        border-radius: 20px;
-        margin-top: 10px;
-        transition: .2s;
-    }
-
-    .carousel-button:hover {
-        transform: scale(1.05);
-        box-shadow: 0px 2px 20px rgba(0, 0, 0, .25)
-    }
-
-    .project-preview {
-        height: 80%;
-        width: auto;
-        position: relative;
-        right: 25px;
-        border-radius: 5px;
-        z-index: 1;
-        transition: .2s;
-        box-shadow: 0px 2px 20px rgba(0,0,0,.25)
-    }
-
-    @media screen and (max-width: 1425px) {
-        .carousel-info {
-            position: relative;
-            right: 50px;
-        }
-    }
-
-    @media screen and (max-width: 1285px) {
-        .project-preview {
-            height: 60%
-        }
-
-        .carousel-desc h1 {
-            font-size: 26px;
-        }
-
-        .carousel-info p {
-            font-size: 14px;
-        }
-    }
-
-    @media screen and (max-width: 650px) {
-        .project-preview {
-            opacity: 0;
-        }
-    }
-
-    @media screen and (max-width: 330px) {
-        .carousel-logo {
-            opacity: 0;
-        }
-    }
-
-    .subtle-gradient {
-        background-image: linear-gradient(to right, #9b07df, #9b07df79, transparent);
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        border-radius: 10px;
-        z-index: 2
-    }
-</style>
-<div class="text-content">
-    <h1>Hi, I'm Josh.</h1>
-    <p>I'm a self-taught developer from Australia.</p>
-    <p style="font-weight: bold"><br>THIS IS A TEMPORARY LANDING PAGE</p>
-</div>
-<div class="main-carousel">
-    <div class="audiation-carousel c-main">
-        <div class="subtle-gradient"></div>
-        <div class="aimage-info">
-            <div class="carousel-logo audiation-logo"></div>
-            <div class="carousel-info">
-                <div class="carousel-desc">
-                    <h1>Audiation 1.0</h1>
-                    <span class="beta-tag">BETA</span>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>projsh_'s Official Web Site</title>
+    </head>
+    <body>
+        <div class="main">
+            <img src="./assets/logo.gif">
+            <div class="content">
+                <div class="construction">
+                    <img src="assets/underconstruction.gif">
+                    <p>Under Construction!!!</p>
+                    <img src="assets/underconstruction.gif">
                 </div>
-                <p>An open-source music player built with Electron</p>
-                <button class="carousel-button">LEARN MORE</button>
+                <div class="sidebyside">
+                    <div class="intro">
+                        <div class="info">
+                            <marquee scrollamount="50"><h1>Hi Welcome to My Web Site!!!</h1></marquee>
+                            <p>Thank you for visiting my awsome web site !Im a amateur developer from the Land Down Under!!! Get it??? Here are some Things i enjoy! See below!</p>
+                            <div>
+                                <img src="assets/windows.gif">
+                                <img src="assets/billgates.gif">
+                                <img src="assets/windows.gif">
+                            </div>
+                            <p>Bill Gates is my Hero! I love Bill Gates so much he's a genuis! Microsotf Windows is My Favourite operating system!!!!!</p>
+                            <div>
+                                <img src="assets/ani_cat.gif">
+                                <img src="assets/ani_cat.gif">
+                            </div>
+                            <p>I Also love Anime and look at this anime catgir l! So Cutee!!!! I Like Anime such as Naruto And One Punch Man And Dragon Ball!!!!!!!</p>
+                            <div>
+                                <img src="assets/triforce.gif">
+                                <img src="assets/nintendo.gif">
+                                <img src="assets/mariojam.gif">
+                            </div>
+                            <p>Nintendo Is The Best game company they beat Sega And Sony!!!! Sony and Sega Sucks!!!!!! Mario And Zelda Link is the best!!!!!</p>
+                        </div>
+                        <div class="software-section">
+                            <img src="assets/software.gif">
+                            <p>Yeah I Make cool Software for Microsoft Windows, Apple Computer Mac OS And Linux!! Here are some Examples of my projects! Some are public, while others are private!!</p>
+                            <div class="software">
+                                <div class="software-item">
+                                    <a href="https://github.com/projsh/firetail">
+                                        <img src="assets/firetail.png">
+                                        <h3>Firetail</h3>
+                                        <p>An open-source music player built using Electron</p>
+                                    </a>
+                                </div>
+                                <div class="software-item">
+                                    <a href="https://github.com/projsh/shinka">
+                                        <img src="assets/underconstruction.gif">
+                                        <h3>Shinka</h3>
+                                        <p>An all-purpose Discord bot focused on peace-of-mind regarding privacy and security</p>
+                                    </a>
+                                </div>
+                                <div class="software-item">
+                                    <img src="assets/breakreminder.png">
+                                    <h3>BreakReminder</h3>
+                                    <p>A small utility designed to remind you to get out of your seat every so often</p>
+                                </div>
+                                <div class="software-item">
+                                    <img src="assets/underconstruction.gif">
+                                    <h3>Evocord</h3>
+                                    <p>An experimental Discord client mod, focusing on easy styling</p>
+                                </div>
+                                <div class="software-item">
+                                    <a href="https://github.com/projsh/Cerium">
+                                        <img src="assets/cerium.png">
+                                        <h3>Cerium</h3>
+                                        <p>Was an all-purpose Discord bot, however now discontinued and archived. Please don't look at the code, it sucks</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom-section">
+                            <p>I sincerely apologise for creating this.</p>
+                        </div>
+                    </div>
+                    <div class="badges">
+                        <h2>My Badges!!</h2>
+                        <img src="assets/geocities.gif">
+                        <img src="assets/hateframes.gif">
+                        <img src="assets/notepad.gif">
+                        <img src="assets/ie.gif">
+                        <img src="assets/roblox.gif">
+                        <img src="assets/microsoft.gif">
+                        <img src="assets/logomicrosoft.gif">
+                    </div>
+                </div>
             </div>
         </div>
-        <img class="project-preview" src="/assets/audiation-preview1.png">
-    </div>
-</div>
+        <audio src="assets/music.mp3" autoplay loop type="audio/mp3"></audio>
+    </body>
+</html>
