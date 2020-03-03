@@ -51,6 +51,10 @@ body {
 
 .badges {
     width: 15%;
+}
+
+.badge-imgs {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -77,11 +81,19 @@ body {
     flex-wrap: wrap;
 }
 
-.software-section, .bottom-section {
+.software-section, .bottom-section, .fun-facts, .closet {
     width: 100%;
     border-top: double 8px #00ff00;
 }
 
 .software-item a {
     color: #d391ff
+}
+
+.fun-facts {
+    background: #01816c;
+}
+
+.fun-facts ul {
+    text-align: left;
 }
