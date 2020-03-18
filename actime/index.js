@@ -82,6 +82,7 @@ let cf = [
 let game = [gc, cf, nl];
 
 let activeGame = game[0];
+let activeGameNum = 0;
 
 let tag = document.createElement('script');
 tag.src = 'https://www.youtube.com/iframe_api';
@@ -108,7 +109,38 @@ function onPlayerReady(event) {
     setTimeout(() => {
         player.seekTo(0);
         player.unMute();
-    }, 500)
+    }, 500);
+    if (isPaused) {
+        player.pauseVideo();
+        pauseControl.textContent = 'play_arrow';
+    } else {
+        pauseControl.textContent = 'pause';
+        player.playVideo();
+    }
+    if (isMute) {
+        player.mute();
+        muteControl.textContent = 'volume_off';
+    } else {
+        muteControl.textContent = 'volume_up';
+        player.unMute();
+    }
+    updateTitle(activeGameNum);
+}
+
+function updateTitle(gamenum) {
+    let title;
+    switch(gamenum) {
+        case 0:
+            title = 'Animal Crossing';
+            break;
+        case 1:
+            title = 'Animal Crossing: City Folk';
+            break;
+        case 2:
+            title = 'Animal Crossing: New Leaf'
+            break;
+    }
+    document.querySelector('.control-title').textContent = `${title} - ${moment().format('ha')}`
 }
 
 function onPlayerStateChange(event) {
@@ -132,7 +164,22 @@ setTimeout(() => {
             setTimeout(() => {
                 player.seekTo(0);
                 player.unMute();
-            }, 500)
+            }, 500);
+            if (isPaused) {
+                player.pauseVideo();
+                pauseControl.textContent = 'play_arrow';
+            } else {
+                pauseControl.textContent = 'pause';
+                player.playVideo();
+            }
+            if (isMute) {
+                player.mute();
+                muteControl.textContent = 'volume_off';
+            } else {
+                muteControl.textContent = 'volume_up';
+                player.unMute();
+            }
+            updateTitle(activeGameNum);
         }
         document.querySelector('#hour').textContent = hour;
         document.querySelector('#minute').textContent = minute;
@@ -150,6 +197,7 @@ function updateGame(newgame) {
     document.querySelectorAll('.switch-game').forEach(e => {
         e.classList.remove('active');
     });
+    updateTitle(newgame);
     switch(newgame) {
         case 0:
             document.querySelector('#gc').classList.add('active');
@@ -161,6 +209,7 @@ function updateGame(newgame) {
             document.querySelector('#nl').classList.add('active');
             break;
     }
+    activeGameNum = newgame;
     activeGame = game[newgame];
     player.mute();
     player.loadVideoById(activeGame[parseInt(moment().format('HH'))]);
@@ -169,4 +218,51 @@ function updateGame(newgame) {
         player.seekTo(0);
         player.unMute();
     }, 500);
+    if (isPaused) {
+        player.pauseVideo();
+        pauseControl.textContent = 'play_arrow';
+    } else {
+        pauseControl.textContent = 'pause';
+        player.playVideo();
+    }
+    if (isMute) {
+        player.mute();
+        muteControl.textContent = 'volume_off';
+    } else {
+        muteControl.textContent = 'volume_up';
+        player.unMute();
+    }
+}
+
+let isPaused = false;
+let isMute = false;
+
+let pauseControl = document.querySelector('.pause');
+let muteControl = document.querySelector('.mute');
+
+function controlClick(control) {
+    switch(control) {
+        case 'pause':
+            if (!isPaused) {
+                player.pauseVideo();
+                pauseControl.textContent = 'play_arrow';
+                isPaused = true;
+            } else {
+                pauseControl.textContent = 'pause';
+                player.playVideo();
+                isPaused = false;
+            }
+            break;
+        case 'mute':
+            if (!isMute) {
+                player.mute();
+                muteControl.textContent = 'volume_off';
+                isMute = true;
+            } else {
+                muteControl.textContent = 'volume_up';
+                player.unMute();
+                isMute = false;
+            }
+            break;
+    }
 }

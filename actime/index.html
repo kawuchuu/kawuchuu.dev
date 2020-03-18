@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Animal Crossing Music: all day!</title>
         <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap" rel="stylesheet">
+        <link href="./material-icons.css" rel="stylesheet">
         <link href="./style.css" rel="stylesheet">
     </head>
     <body>
@@ -25,6 +26,14 @@
                 <div id="gc" class="switch-game active" onclick="updateGame(0)">GameCube</div>
                 <div id="cf" class="switch-game" onclick="updateGame(1)">City Folk/Let's Go to the City</div>
                 <div id="nl" class="switch-game" onclick="updateGame(2)">New Leaf</div>
+            </div>
+            <div class="controls">
+                <div class="nowplaying">Now Playing</div>
+                <div class="control-title">Loading...</div>
+                <div class="buttons">
+                    <i class="material-icons-rounded pause" onclick="controlClick('pause')">pause</i>
+                    <i class="material-icons-rounded mute" onclick="controlClick('mute')">volume_up</i>
+                </div>
             </div>
             <div class="hidden-video">
                 <div id="player"></div>
