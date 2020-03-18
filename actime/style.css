@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    color: var(--color);
+    font-family: 'Libre Franklin', 'Zilla Slab', sans-serif;
+}
+
+:root {
+    --color: #436b69;
+}
+
+.bg {
+    background: url(./bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    opacity: .4;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    font-family: 'Zilla Slab', 'Libre Franklin', sans-serif;
+    font-size: 24px;
+}
+
+.hidden-video {
+    visibility: hidden;
+    position: fixed;
+}
+
+.time {
+    padding: 35px 60px;
+    background: rgba(200, 255, 251, 0.25);
+    width: 125px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    font-weight: bold;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+#colon {
+    padding: 0px 4px;
+}
+
+.switch-game {
+    display: flex;
+    align-items: center;
+    margin: 40px;
+    font-size: 18px;
+}
+
+.switch-game div {
+    padding: 10px 20px;
+    margin: 0px 5px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.switch-game div:hover {
+    background: #60949138;
+}
+
+.switch-game div.active {
+    font-weight: bold;
+}
