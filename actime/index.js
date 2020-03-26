@@ -79,10 +79,37 @@ let cf = [
     'ouBKNNeGbh8'
 ]
 
-let game = [gc, cf, nl];
+let nh = [
+    'nRFqpU7O3vo',
+    'wLhIL2rL1Bc',
+    'L0dk5ITga_o',
+    'zzJiwCZKHU4',
+    'LBC1p0D-2Po',
+    'mXLiNTEwcbQ',
+    'PT3Gx-Ox5Ek',
+    'h6s6I0tu8GA',
+    'e9EwML77OlM',
+    'QcI_lROHL5Q',
+    'wZnEQaISzl0',
+    'dCmFNMXLpIs',
+    'dBBWep92A_k',
+    'YWZJlMNpGxM',
+    'RQMoNx3RFXM',
+    '_IYQVVGs6P0',
+    'mDTNxBR83mA',
+    'fy9lg6VM58Q',
+    'Dq3nvaZD0hw',
+    'XiJW-Gzi4rU',
+    'ANahgDRfNMg',
+    '8qTtOF6td-g',
+    '1XPYZJi30Xo',
+    '9fVfSMErmKA'
+]
 
-let activeGame = game[0];
-let activeGameNum = 0;
+let game = [gc, cf, nl, nh];
+
+let activeGame = game[3];
+let activeGameNum = 3;
 
 let tag = document.createElement('script');
 tag.src = 'https://www.youtube.com/iframe_api';
@@ -93,7 +120,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: nl[0],
+        videoId: nh[0],
         events: {
           'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
@@ -138,6 +165,9 @@ function updateTitle(gamenum) {
             break;
         case 2:
             title = 'Animal Crossing: New Leaf'
+            break;
+        case 3:
+            title = 'Animal Crossing: New Horizons'
             break;
     }
     document.querySelector('.control-title').textContent = `${title} - ${moment().format('ha')}`
@@ -208,6 +238,8 @@ function updateGame(newgame) {
         case 2:
             document.querySelector('#nl').classList.add('active');
             break;
+        case 3:
+            document.querySelector('#nh').classList.add('active');
     }
     activeGameNum = newgame;
     activeGame = game[newgame];
