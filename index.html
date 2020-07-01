@@ -1,122 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <link rel="stylesheet" href="style.css">
-        <title>projsh_'s Official Web Site</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">        <link href="style.css" rel="stylesheet">
+        <title>projsh_</title>
     </head>
     <body>
-        <div class="main">
-            <img src="./assets/logo.gif">
-            <div class="content">
-                <div class="construction">
-                    <marquee scrollamount="100" behavior="alternate" direction="left">
-                        <img src="assets/underconstruction.gif">
-                    </marquee>
-                    <p>Under Construction!!!</p>
-                    <marquee scrollamount="100" behavior="alternate" direction="right">
-                        <img src="assets/underconstruction.gif">
-                    </marquee>
+        <div class="particles" id="particles-js"></div>
+        <script src="particles.min.js"></script>
+        <div class="content">
+            <div class="section-top">
+                <div class="top-leftside">
+                    <div class="fixed">
+                        <h1 class="main-heading">Hi, I'm projsh_</h1>
+                        <h2>I make stuff.</h2>
+                    </div>
                 </div>
-                <div class="sidebyside">
-                    <div class="intro">
-                        <div class="info">
-                            <marquee scrollamount="50"><h1>Hi Welcome to My Web Site!!!</h1></marquee>
-                            <p>Thank you for visiting my awsome web site !Im a amateur developer from the Land Down Under!!! Get it??? Here are some Things i enjoy! See below!</p>
-                            <div>
-                                <img src="assets/windows.gif">
-                                <img src="assets/billgates.gif">
-                                <img src="assets/windows.gif">
-                            </div>
-                            <p>Bill Gates is my Hero! I love Bill Gates so much he's a genuis! Microsotf Windows is My Favourite operating system!!!!!</p>
-                            <div>
-                                <img src="assets/ani_cat.gif">
-                                <img src="assets/ani_cat.gif">
-                            </div>
-                            <p>I Also love Anime and look at this anime catgir l! So Cutee!!!! I Like Anime such as Naruto And One Punch Man And Dragon Ball!!!!!!!</p>
-                            <div>
-                                <img src="assets/triforce.gif">
-                                <img src="assets/nintendo.gif">
-                                <img src="assets/mariojam.gif">
-                            </div>
-                            <p>Nintendo Is The Best game company they beat Sega And Sony!!!! Sony and Sega Sucks!!!!!! Mario And Zelda Link is the best!!!!!</p>
-                        </div>
-                        <div class="fun-facts">
-                            <marquee direction="right" behavior="alternate" scrollamount="50"><marquee direction="down" behavior="alternate" scrollamount="50"><img src="assets/funstuf.gif"><h1>FUN FACTSS!!!!!!!!!!!!!!</h1></marquee></marquee>
-                            <p>Here Are some fun factd about me!!</p>
-                            <ul>
-                                <li>i play nitendo games!!!!!</li>
-                                <li>microsfot WIndows is the best!!</li>
-                                <li>I LIVE IN Australia</li>
-                                <li>i love The COMPACT DISC so Much</li>
-                                <li>MAC OS IS BAD SUCKS!!!!!! >:((((</li>
-                                <li>IVE CHANGED MY MIND MACS OS IS GREAT</li>
-                            </ul>
-                        </div>
-                        <div class="software-section">
-                            <img src="assets/software.gif">
-                            <p>Yeah I Make cool Software for Microsoft Windows, Apple Computer Mac OS And Linux!! Here are some Examples of my projects! Some are public, while others are private!!</p>
-                            <div class="software">
-                                <div class="software-item">
-                                    <a href="https://github.com/projsh/firetail">
-                                        <img src="assets/firetail.png">
+                <div class="section-right">
+                    <div class="section-info">
+                        <h1>About Me</h1>
+                        <p>I'm a wannabe developer from Australia. I make all sorts of stuff like programs, designs, videos and music. Basically, I like making things. I'm super passionate about programming and UI/UX design. That's all you need to know about me.</p>
+                    </div>
+                    <div class="section-projects">
+                        <h1>Projects</h1>
+                        <div class="project-group">
+                            <a href="https://github.com/projsh/firetail" target="_blank">
+                                <div class="project-item clickable">
+                                    <div class="icon" style="background-image: url('/assets/firetail.png');"></div>
+                                    <div class="item-info">
                                         <h3>Firetail</h3>
                                         <p>An open-source music player built using Electron</p>
-                                    </a>
+                                    </div>
                                 </div>
-                                <div class="software-item">
-                                    <a href="https://github.com/projsh/shinka">
-                                        <img src="assets/underconstruction.gif">
+                            </a>
+                            <a href="https://github.com/projsh/shinka" target="_blank">
+                                <div class="project-item clickable">
+                                    <div title="No icon has been made yet" class="icon"></div>
+                                    <div class="item-info">
                                         <h3>Shinka</h3>
                                         <p>An all-purpose Discord bot focused on peace-of-mind regarding privacy and security</p>
-                                    </a>
+                                    </div>
                                 </div>
-                                <div class="software-item">
-                                    <img src="assets/breakreminder.png">
-                                    <h3>BreakReminder</h3>
+                            </a>
+                            <div class="project-item">
+                                <div class="icon" style="background-image: url('/assets/breakreminder.png');"></div>
+                                <div class="item-info">
+                                    <h3>BreakReminder (not public yet)</h3>
                                     <p>A small utility designed to remind you to get out of your seat every so often</p>
-                                    <script>
-                                        let log = () => {
-                                            console.log(atob('aSB0aGluayBpJ20gcmVhZHkgdG8gY29tZSBvdXQgb2YgdGhlIGNsb3NldD8ganVzdCB0YWtlIGEgbG9vayBhdCB0aGUgYmFkZ2VzIDopICh0aGlzIGlzIGhpZGRlbiBiZWNhdXNlIGkgZG9uJ3Qgd2FudCBldmVyeW9uZSB0byBrbm93KQ=='))
-                                        }
-                                    </script>
-                                </div>
-                                <div class="software-item">
-                                    <img src="assets/underconstruction.gif">
-                                    <h3>Evocord</h3>
-                                    <p>An experimental Discord client mod, focusing <span ondblclick="log()">on</span ondblclick="log()"> easy styling</p>
-                                </div>
-                                <div class="software-item">
-                                    <a href="https://github.com/projsh/Cerium">
-                                        <img src="assets/cerium.png">
-                                        <h3>Cerium</h3>
-                                        <p>Was an all-purpose Discord bot, however now discontinued and archived. Please don't look at the code, it sucks</p>
-                                    </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="bottom-section">
-                            <p>I sincerely apologise for creating this.</p>
-                            <p>projsh_ 2020</p>
+                            <div class="project-item">
+                                <div title="No icon has been made yet" class="icon"></div>
+                                <div class="item-info">
+                                    <h3>Evocord (not public yet)</h3>
+                                    <p>An experimental Discord client mod, focusing on easy styling</p>
+                                </div>
+                            </div>
+                            <a href="https://github.com/projsh/cerium" target="_blank">
+                                <div class="project-item clickable">
+                                    <div class="icon" style="background-image: url('/assets/cerium.png');"></div>
+                                    <div class="item-info">
+                                        <h3>Cerium</h3>
+                                        <p>Was an all-purpose Discord bot, however now discontinued and archived. Please don't look at the code, it sucks</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                    <div class="badges">
-                        <h1>My Badges!!</h1>
-                        <div class="badge-imgs">
-                            <img src="assets/geocities.gif">
-                            <img src="assets/hateframes.gif">
-                            <img src="assets/notepad.gif">
-                            <img src="assets/ie.gif">
-                            <img src="assets/roblox.gif">
-                            <img src="assets/microsoft.gif">
-                            <img src="assets/logomicrosoft.gif">
-                            <img src="assets/netscape.gif">
-                            <img src="assets/bi.gif">
-                            <img src="assets/trnsrits.gif">
+                    <div class="section-socials">
+                        <h1>Socials & Other Info</h1>
+                        <div class="group-socials">
+                            <a href="https://twitter.com/projsh_" target="_blank">
+                                <div class="item-scmedia">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path>
+                                    </svg>
+                                    <span>@projsh_</span>
+                                </div>
+                            </a>
+                            <a href="https://github.com/projsh" target="_blank">
+                                <div class="item-scmedia">
+                                    <svg viewbox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                                    </svg>
+                                    <span>projsh</span>
+                                </div>
+                            </a>
+                            <a href="https://open.spotify.com/user/projosh1055" target="_blank">
+                                <div class="item-scmedia">
+                                    <svg viewbox="0 0 168 168">
+                                        <path xmlns="http://www.w3.org/2000/svg" d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"/>
+                                    </svg>
+                                    <span>projsh_</span>
+                                </div>
+                            </a>
                         </div>
+                        <p>Black Lives Matter.<br>Trans & LGBTQ+ rights are human rights.</p>
+                        <p>If you don't "agree" with the above, I have no desire to interact with you.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <audio src="assets/music.mp3" autoplay loop type="audio/mp3"></audio>
+        <script>
+            let dark = false;
+            let first = true;
+
+            let updateMode = newColorScheme => {
+                if (newColorScheme == "dark") {
+                    if (!dark || first) {
+                        particlesJS.load('particles-js', 'assets/particles-dark.json', function() {
+                            dark = true;
+                            first = false;
+                            console.log('callback - particles.js config loaded');
+                            document.querySelectorAll('.project-item .icon').forEach(f => {
+                                f.classList.add('dark');
+                            })
+                        });
+                    }
+                } else {
+                    if (dark || first) {
+                        particlesJS.load('particles-js', 'assets/particles.json', function() {
+                            dark = false;
+                            first = false;
+                            console.log('callback - particles.js config loaded');
+                            document.querySelectorAll('.project-item .icon').forEach(f => {
+                                f.classList.remove('dark');
+                            })
+                        });
+                    }
+                }
+            }
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                updateMode('dark')
+            } else {
+                updateMode('light')
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                const newColorScheme = e.matches ? "dark" : "light";
+                updateMode(newColorScheme);
+            });
+
+            document.querySelectorAll('.item-scmedia').forEach(f => {
+                f.addEventListener('mouseover', evt => {
+                    if (document.body.clientWidth > 540) {
+                        evt.target.style.width = (evt.target.children[1].clientWidth + 45) + 'px';
+                        evt.target.children[1].style.opacity = 1;
+                    }
+                });
+                f.addEventListener('mouseleave', evt => {
+                    evt.target.style.width = '30px';
+                    evt.target.children[1].style.opacity = 0;
+                })
+            })
+        </script>
     </body>
 </html>
