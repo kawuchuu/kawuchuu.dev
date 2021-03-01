@@ -39,6 +39,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
 let isRequestingToken = false;
 
+//github pages hello??????? update please?????
 let requestToken = (type, createPlayer, code) => {
     let query;
     if (type == 'code') {
