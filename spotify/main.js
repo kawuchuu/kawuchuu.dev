@@ -42,11 +42,12 @@ let isRequestingToken = false;
 let requestToken = (type, createPlayer, code) => {
     let query;
     if (type == 'code') {
+        let spliturl = location.href.split('?')
         query = new URLSearchParams({
             'client_id': '33b8b67edb3d4057acf6c21dce334c65',
             'grant_type': 'authorization_code',
             'code': code,
-            'redirect_uri': location.href,
+            'redirect_uri': spliturl[0],
             'code_verifier': sessionStorage.getItem('code-verifier')
         })
     } else if (type == 'refresh') {
@@ -56,11 +57,12 @@ let requestToken = (type, createPlayer, code) => {
             'refresh_token': localStorage.getItem('refresh-token')
         })
     }
-    fetch(`https://accounts.spotify.com/api/token?${query.toString()}`, {
+    fetch(`https://accounts.spotify.com/api/token`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
-        }
+        },
+        body: query.toString()
     }).then(async resp => {
         let parsedResp = await resp.json();
         if (parsedResp.error) return console.log(parsedResp)
