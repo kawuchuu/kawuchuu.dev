@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You seem lost, friend</title>
+</head>
+<body>
+    <div class="wrapper-ontop">
+        <div class="ontop">
+            <h1>You seem lost, friend</h1>
+            <p>How 'bout we return to my landing page, shall we?</p>
+            <p class="small">(this is a 404 message btw)</p>
+            <a href="/">
+                <i class="material-icons">arrow_back_ios</i>
+                <span>Back to kawuchuu</span>
+            </a>
+        </div>
+    </div>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+        
+        :root {
+            --wa-bg: #070707;
+            --wa-txt: white;
+            --wa-hl: rgba(255, 255, 255, 0.10);
+            --wa-bgop: rgba(7, 7, 7, 0.9);
+        }
+
+        body {
+            font-family: 'JetBrains Mono', 'Inter';
+            background-color: var(--wa-bg);
+            color: var(--wa-txt);
+            margin: 0;
+        }
+
+        h1 {
+            font-family: 'Inter';
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+            margin-top: 0px;
+        }
+
+        .ontop a {
+            color: var(--wa-txt);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .ontop a:hover span {
+            text-decoration: underline;
+        }
+
+        .ontop a:active {
+            opacity: 0.5;
+        }
+
+        .ontop a:active span {
+            text-decoration: underline;
+        }
+
+        div.wrapper-ontop {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            z-index: 10;
+            background: var(--wa-bg);
+        }
+
+        div.ontop h1 {
+            font-size: 42px;
+            border-bottom: solid 1px var(--wa-txt);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        div.ontop a {
+            margin-top: 40px;
+        }
+
+        .small {
+            font-size: 13px;
+            opacity: 0.5;
+        }
+    </style>
+</body>
+</html>

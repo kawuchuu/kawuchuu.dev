@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Web Playback SDK Prototype</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+        body {
+            font-family: 'Inter', 'Roboto', sans-serif;
+            background-color: #141414;
+            color: white;
+        }
+        .main {
+            display: none;
+        }
+        .login {
+            display: none;
+        }
+        .missing-premium {
+            display: none;
+        }
+        .missing-widevine {
+            display: none;
+        }
+        .init-msg {
+            display: block;
+        }
+        #seekBar {
+            width: 100%;
+        }
+        .song {
+            margin: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .song img {
+            margin-right: 10px;
+            width: 42px;
+            height: 42px;
+        }
+        .song.active {
+            font-weight: bold;
+            text-decoration: underline;
+            color: #1DB954;
+        }
+        .album-img {
+            width: 180px;
+            height: 180px;
+        }
+        .info {
+            margin-right: 30px;
+            width: 50%;
+        }
+        .info-wrapper {
+            position: fixed;
+        }
+        .list {
+            width: 50%;
+        }
+        @media (max-width: 1150px) {
+            .main {
+                flex-direction: column;
+            }
+            .info-wrapper {
+                position: relative;
+            }
+            .info, .list {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="init-msg">Initialising...</h1>
+    <div class="main">
+        <div class="info">
+            <div class="info-wrapper">
+                <h1>Spotify Web Playback SDK Prototype</h1>
+                <p>Please note this is a <i>prototype</i> and isn't guaranteed to work properly.<br>Use at your own risk.</p>
+                <p>Currently logged into: <span id="accountName">loading...</span></p>
+                <button id="logout">Log out</button>
+                <br><br>
+                <album-img :url="albumArt"></album-img>
+                <h1><span id="song">No Song Playing...</span></h1>
+                <button id="shuffle">Shuffle: <span>OFF</span></button>
+                <button id="prev">Previous</button>
+                <button id="pausePlay">Pause/play</button>
+                <button id="next">Next</button>
+                <button id="repeat">Repeat: <span>OFF</span></button>
+                <br><br>
+                <input step="500" min="0" type="range" id="seekBar">
+                <p id="time">-:--/-:--</p>
+            </div>
+        </div>
+        <div class="list">
+            <h3>Playlists</h3>
+            <select @change="updatePlaylist" id="playlists">
+                <option v-for="option in playlists" :value="option.id">{{ option.name }}</option>
+            </select>
+            <h3>Playlist songs</h3>
+            <div class="playlist-songs">
+                <song-item v-for="item in songs" :song="item" :key="item.id"></song-item>
+                <button v-show="displayShowMore" @click="loadMoreTracks">Load more tracks</button>
+            </div>
+        </div>
+    </div>
+    <div class="login">
+        <h1>Please log in to continue</h1>
+        <p>A premium account is required to continue</p>
+        <p>Please note this is a <i>prototype</i> and isn't guaranteed to work properly.<br>Use at your own risk.</p>
+        <button id="login">Log in</button>
+    </div>
+    <div class="missing-premium">
+        <h1>The Spotify Web Playback SDK requires a Premium account</h1>
+        <p>Sorry about that; not much I can do about it. Go yell at Spotify or something. You will be automatically logged out in 10 seconds.</p>
+    </div>
+    <div class="missing-widevine">
+        <h1>This browser doesn't support Widevine DRM</h1>
+        <p>The Spotify Web Playback SDK requires DRM software (nothing I can do about it, sorry). Please either enable it or switch to a browser that supports it.</p>
+        <p>This message may also appear if you're using an insecure connection. (only https, localhost (127.0.0.1) and file will work)</p>
+    </div>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

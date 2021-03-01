@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+    yo check out firetail it's pretty sick:
+    https://github.com/kawuchuu/firetail
+
+    default song is drifting away by albie.
+    check out his full album here (it's pretty great):
+    https://www.youtube.com/watch?v=5RjbWOB3Fp8
+    or on spotify:
+    https://open.spotify.com/album/5ZVM4tlGnTflBLByBGsLTR?si=EHIvYiD9QWOmEyTwBLzrzQ
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Audio API</title>
+    <link rel="stylesheet" href="main.css">
+    <meta name="color-scheme" content="dark">
+</head>
+<body>
+    <noscript>
+        <div class="wrapper-ontop">
+            <div class="ontop">
+                <h1>JavaScript is required</h1>
+                <p>Please enable JavaScript. This web app will not function without it.</p>
+                <a href="/">
+                    <i class="material-icons">arrow_back_ios</i>
+                    <span>Back to kawuchuu</span>
+                </a>
+            </div>
+        </div>
+    </noscript>
+    <div class="app">
+        <div class="bg-container">
+            <div class="bg"></div>
+        </div>
+        <div class="nav-bar">
+            <div class="nav-bar-container">
+                <a href="/">
+                    <i class="material-icons">arrow_back_ios</i>
+                    <span>Back to kawuchuu</span>
+                </a>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="content">
+                <h1>Web Audio API</h1>
+                <p class="description">Try out these effects made available using the Web Audio API here!</p>
+                <div class="controls">
+                    <div class="status">
+                        <div class="file-select">
+                            <label for="selectFile">Select File</label>
+                            <input type="file" style="display: none" id="selectFile">
+                            <p>Files selected here are not uploaded to the internet.</p>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="status-controls">
+                            <div class="song-name">
+                                <div class="playing-ani">
+                                    <div class="bar one"></div>
+                                    <div class="bar two"></div>
+                                    <div class="bar three"></div>
+                                </div>
+                                <span id="fileName">No song playing...</span>
+                            </div>
+                            <div class="song-icon-controls">
+                                <i id="pausePlay" class="material-icons" title="Pause/play">play_arrow</i>
+                                <i id="stop" class="material-icons" title="Stop">stop</i>
+                            </div>
+                            <!--seeking incomplete-->
+                            <input type="range" style="display: none;" id="seekRange" step=0.5>
+                        </div>
+                    </div>
+                    <div id="speedRange" class="control-item">
+                        <div class="item-title">
+                            <h2>Speed</h2>
+                            <span>-</span>
+                            <span class="num">1x</span>
+                        </div>
+                        <input type="range" min="0" max="3" value="1" step="0.05">
+                        <div class="control-btns">
+                            <i class="material-icons clear" id="speedClear" title="Reset">update</i>
+                            <!-- <i class="material-icons" title="About this effect">info</i> -->
+                        </div>
+                    </div>
+                    <div id="gainRange" class="control-item">
+                        <div class="item-title">
+                            <h2>Gain</h2>
+                            <span>-</span>
+                            <span class="num">1x</span>
+                        </div>
+                        <input type="range" min="0" max="15" value="1" step="0.2">
+                        <div class="control-btns">
+                            <i class="material-icons clear" id="gainClear" title="Reset">update</i>
+                            <!-- <i class="material-icons" title="About this effect">info</i> -->
+                        </div>
+                    </div>
+                    <div id="trebleRange" class="control-item">
+                        <div class="item-title">
+                            <h2>Treble</h2>
+                            <span>-</span>
+                            <span class="num">0x</span>
+                        </div>
+                        <input type="range" min="0" max="40" value="0" step="0.2">
+                        <div class="control-btns">
+                            <i class="material-icons clear" id="trebleClear" title="Reset">update</i>
+                            <!-- <i class="material-icons" title="About this effect">info</i> -->
+                        </div>
+                    </div>
+                    <div id="bassRange" class="control-item">
+                        <div class="item-title">
+                            <h2>Bass</h2>
+                            <span>-</span>
+                            <span class="num">0x</span>
+                        </div>
+                        <input type="range" min="0" max="40" value="0" step="0.2">
+                        <div class="control-btns">
+                            <i class="material-icons clear" id="bassClear" title="Reset">update</i>
+                            <!-- <i class="material-icons" title="About this effect">info</i> -->
+                        </div>
+                    </div>
+                    <div id="reverbRange" class="control-item">
+                        <div class="item-title">
+                            <h2>Reverb</h2>
+                            <span>-</span>
+                            <span class="num">0x</span>
+                        </div>
+                        <input type="range" min="0" max="5" value="0" step="0.2">
+                        <div class="control-btns">
+                            <i class="material-icons clear" id="reverbClear" title="Reset">update</i>
+                            <!-- <i class="material-icons" title="About this effect">info</i> -->
+                        </div>
+                    </div>
+                    <!-- <div class="control-item">
+                        <h2>Channel</h2>
+                    </div> -->
+                </div>
+                <div class="footer">
+                    <p>Copyright &copy; 2021 kawuchuu</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

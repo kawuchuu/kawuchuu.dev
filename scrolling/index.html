@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom scroller test</title>
+</head>
+<body>
+    <div class="custom-scrollbar">
+        <div class="thumb"></div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <h1>Custom scroller</h1>
+        </div>
+    </div>
+    <script>
+        let scrollbarThumb = document.querySelector('.thumb');
+        for (i=0; i < 100; i++) {
+            document.querySelector('.container').innerHTML += '<div class="scroll-item">Item ' + (i + 1) + '</div>'
+        }
+
+        let updateScrollbar = () => {
+            scrollbarThumb.style.height = (window.innerHeight / document.body.getBoundingClientRect().height) * 100 + '%';
+
+            scrollbarThumb.style.top = (window.scrollY / document.body.getBoundingClientRect().height) * 100 + '%'
+            requestAnimationFrame(updateScrollbar)
+        }
+
+        let isMouseDown
+
+        scrollbarThumb.addEventListener('mousedown', () => {
+            isMouseDown = true;
+        })
+
+        window.addEventListener('mouseup', () => {
+            isMouseDown = false;
+        })
+
+        window.addEventListener('mousemove', evt => {
+            //console.log(evt)
+            if (isMouseDown) {
+                window.scrollTo(0, (evt.clientY / document.body.getBoundingClientRect().height) * document.body.getBoundingClientRect().height)
+            }
+        })
+        updateScrollbar()
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        ::-webkit-scrollbar {
+            background: #ff0000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00ff00;
+        }
+        .custom-scrollbar {
+            position: fixed;
+            right: 0;
+            width: 15px;
+            height: 100%;
+            background: #ff0000;
+        }
+        .custom-scrollbar .thumb {
+            position: relative;
+            width: 100%;
+            height: 50%;
+            background: #00ff00;
+        }
+    </style>
+</body>
+</html>
