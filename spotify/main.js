@@ -40,7 +40,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 let isRequestingToken = false;
 
 //github pages hello??????? update please?????
-let requestToken = (type, createPlayer, code) => {
+let requestToken = async (type, createPlayer, code) => {
     let query;
     if (type == 'code') {
         let spliturl = location.href.split('?')
@@ -265,7 +265,9 @@ let startPlayer = async () => {
     const user = await userFetch.json()
     if (user.error) {
         console.log('Token is not working... attempting to refresh');
-        requestToken('refresh')
+        await requestToken('refresh')
+        console.log('done refreshing!!')
+        startPlayer()
         return;
     }
     if (user.product != 'premium') {
