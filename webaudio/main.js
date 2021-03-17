@@ -311,3 +311,15 @@ document.querySelectorAll('.clear').forEach(el => {
             console.log('what lol')
     }
 })
+
+const disclaimer = document.querySelector('.disclaimer')
+
+if (!localStorage.getItem('wa-disclaimer-accept')) {
+    disclaimer.classList.add('show')
+}
+
+document.querySelector('#closeDisclaimer').addEventListener('click', () => {
+    disclaimer.classList.remove('show')
+    disclaimer.classList.add('hide')
+    localStorage.setItem('wa-disclaimer-accept', true)
+})

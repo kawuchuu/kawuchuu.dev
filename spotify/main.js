@@ -353,6 +353,7 @@ let startPlayer = async () => {
 
     player.addListener('ready', ({device_id}) => {
         console.log('Ready. Device ID:', device_id);
+        player._options.id = device_id
     })
 
     /* player.addListener('not-ready', ({device_id}) => {
