@@ -39,7 +39,6 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
 let isRequestingToken = false;
 
-//github pages hello??????? update please?????
 let requestToken = async (type, createPlayer, code) => {
     let query;
     if (type == 'code') {
@@ -127,7 +126,7 @@ document.querySelector('#login').addEventListener('click', async () => {
     sessionStorage.setItem('temp-state', state);
     sessionStorage.setItem('code-verifier', random);
     let redirect = encodeURIComponent(location.href)
-    window.location.href = `https://accounts.spotify.com/authorize?client_id=33b8b67edb3d4057acf6c21dce334c65&response_type=code&redirect_uri=${redirect}&code_challenge_method=S256&code_challenge=${codeChallenge}&state=${state}&scope=streaming%20user-read-email%20user-modify-playback-state%20user-read-private&show_dialog=true`
+    window.location.href = `https://accounts.spotify.com/authorize?client_id=33b8b67edb3d4057acf6c21dce334c65&response_type=code&redirect_uri=${redirect}&code_challenge_method=S256&code_challenge=${codeChallenge}&state=${state}&scope=streaming%20user-read-email%20user-modify-playback-state%20user-read-private%20user-library-read%20user-follow-read%20playlist-read-private&show_dialog=true`
 })
 
 let logout = () => {
@@ -152,7 +151,7 @@ let currentState;
 
 const songItem = Vue.component('song-item', {
     props: ['song'],
-    template: '<div @click="newContext" :class="isActive" class="song"><img :src="song.image"/>{{ song.name }}</div>',
+    template: '<div @click="newContext" :class="isActive" class="song"><img :style="isArtUsable" :src="song.image"/>{{ song.name }}</div>',
     computed: {
         isActive() {
             if (this.$vnode.key == this.$root.activeSongURI) {
@@ -162,6 +161,10 @@ const songItem = Vue.component('song-item', {
                 return ''
             }
         },
+        isArtUsable() {
+            if (!this.song.image) return 'display: none'
+            else return ''
+        },
         available() {
             if (!this.song.available) return 'unavailable'
             else return ''
@@ -169,13 +172,19 @@ const songItem = Vue.component('song-item', {
     },
     methods: {
         newContext() {
-            let data = JSON.stringify({
-                context_uri: this.$root.selectedContext,
+            let data = {
                 offset: {
                     position: this.song.index
                 },
                 position_ms: 0
-            })
+            }
+            if (!vueStuff.uris) {
+                data['context_uri'] = this.$root.selectedContext
+            } else {
+                data['uris'] = vueStuff.uris
+            }
+            console.log(data)
+            data = JSON.stringify(data)
             sendRequest(`me/player/play?device_id=${player._options.id}`, 'PUT', 'body', data)
         }
     }
@@ -199,41 +208,203 @@ let vueStuff = new Vue({
         selectedContext: null,
         activeSongURI: '',
         albumArt: '',
-        currentPlaylistSize: 0
+        currentPlaylistSize: 0,
+        selectedListType: 'playlistsLink',
+        songItemAlbumArt: null,
+        selectedIndex: 0,
+        uris: null
     },
     methods: {
-        updateSongs() {
-            this.songs = []
-            sendRequest(`playlists/${this.selectedPlaylist}/tracks`, 'GET', 'query', {limit: 100}).then(tracks => {
-                vueStuff.currentPlaylistSize = tracks.total
+        updateArtist(evt) {
+            sendRequest(`artists/${this.selectedPlaylist}/top-tracks`, 'GET', 'query', {market: country}).then(tracks => {
+                console.log(tracks)
+                if (evt) {
+                    evt.target.textContent = 'Load more tracks'
+                } else {
+                    vueStuff.currentPlaylistSize = tracks.length
+                }
+                const currentSongLength = this.songs.length
+                tracks.tracks.forEach((song, i) => {
+                    this.songs.push({
+                        name: `${song.album.name} - ${song.name}`,
+                        id: song.uri,
+                        image: song.album.images[2].url,
+                        index: currentSongLength + i
+                    })
+                    this.uris.push(song.uri)
+                })
+            })
+        },
+        updateAlbum(evt) {
+            sendRequest(`albums/${this.selectedPlaylist}/tracks`, 'GET', 'query', {limit: 50, offset: this.songs.length}).then(tracks => {
+                console.log(tracks)
+                if (evt) {
+                    evt.target.textContent = 'Load more tracks'
+                } else {
+                    vueStuff.currentPlaylistSize = tracks.total
+                }
+                const currentSongLength = this.songs.length
                 tracks.items.forEach((song, i) => {
                     this.songs.push({
-                        name: `${song.track.name} by ${song.track.artists[0].name}`,
-                        id: song.track.uri,
-                        image: song.track.album.images[2].url,
-                        index: i
+                        name: `${song.artists[0].name} - ${song.name}`,
+                        id: song.uri,
+                        image: null,
+                        index: currentSongLength + i
                     })
                 })
             })
+        },
+        updatePlaylistItm(evt) {
+            sendRequest(`playlists/${this.selectedPlaylist}/tracks`, 'GET', 'query', {limit: 100, offset: this.songs.length}).then(tracks => {
+                if (evt) {
+                    evt.target.textContent = 'Load more tracks'
+                } else {
+                    vueStuff.currentPlaylistSize = tracks.total
+                }
+                const currentSongLength = this.songs.length
+                tracks.items.forEach((song, i) => {
+                    this.songs.push({
+                        name: `${song.track.artists[0].name} - ${song.track.name}`,
+                        id: song.track.uri,
+                        image: song.track.album.images[2].url,
+                        index: currentSongLength + i
+                    })
+                })
+            })
+        },
+        updateLikedItm(evt) {
+            sendRequest(`me/tracks`, 'GET', 'query', {limit: 50, offset: this.songs.length}).then(tracks => {
+                if (evt) {
+                    evt.target.textContent = 'Load more tracks'
+                } else {
+                    vueStuff.currentPlaylistSize = tracks.total
+                }
+                const currentSongLength = this.songs.length
+                console.log(tracks)
+                tracks.items.forEach((song, i) => {
+                    this.songs.push({
+                        name: `${song.track.artists[0].name} - ${song.track.name}`,
+                        id: song.track.uri,
+                        image: song.track.album.images[2].url,
+                        index: currentSongLength + i
+                    })
+                    this.uris.push(song.track.uri)
+                })
+            })
+        },
+        updateSongs(evt) {
+            this.songs = []
+            switch(this.selectedListType) {
+                case "playlistsLink":
+                    this.uris = null
+                    this.updatePlaylistItm()
+                break;
+                case "albumsLink":
+                    this.uris = null
+                    this.updateAlbum()
+                break;
+                case "artistsLink":
+                    this.uris = []
+                    this.updateArtist()
+                break;
+                case "likedLink":
+                    this.uris = []
+                    this.updateLikedItm()
+                break;
+            }
         },
         updatePlaylist(evt) {
             this.selectedPlaylist = evt.target.value
-            this.selectedContext = `spotify:playlist:${evt.target.value}`
+            switch(this.selectedListType) {
+                case "playlistsLink":
+                    this.selectedContext = `spotify:playlist:${evt.target.value}`
+                    break;
+                case "albumsLink":
+                    this.selectedContext = `spotify:album:${evt.target.value}`
+                    break;
+                case "artistsLink":
+                    this.selectedContext = `spotify:artist:${evt.target.value}`
+                    break;
+                case "likedLink":
+                    this.selectedContext = `spotify:user:${user.id}:collection`
+            }
+            this.selectedIndex = 0
         },
         loadMoreTracks(evt) {
             evt.target.textContent = 'Loading...'
-            sendRequest(`playlists/${this.selectedPlaylist}/tracks`, 'GET', 'query', {limit: 100, offset: this.songs.length}).then(tracks => {
-                evt.target.textContent = 'Load more tracks'
-                tracks.items.forEach((song, i) => {
-                    i = this.songs.length
-                    this.songs.push({
-                        name: `${song.track.name} by ${song.track.artists[0].name}`,
-                        id: song.track.uri,
-                        image: song.track.album.images[2].url,
-                        index: i
+            switch(this.selectedListType) {
+                case "playlistsLink":
+                    this.updatePlaylistItm(evt)
+                break;
+                case "albumsLink":
+                    this.updateAlbum(evt)
+                break;
+                case "artistsLink":
+                    this.updateArtist(evt)
+                break;
+                case "likedLink":
+                    this.updateLikedItm(evt)
+            }
+        },
+        updateListType() {
+            this.playlists = []
+            this.selectedPlaylist = null
+            this.selectedContext = null
+            switch(this.selectedListType) {
+                case "playlistsLink":
+                    sendRequest('me/playlists', 'GET', 'query', {limit: 50}).then(data => {
+                        data.items.forEach(playlist => {
+                            if (!vueStuff.selectedPlaylist) vueStuff.selectedPlaylist = playlist.id
+                            if (!vueStuff.selectedContext) vueStuff.selectedContext = playlist.uri
+                            vueStuff.currentPlaylistSize = playlist.tracks.total
+                            vueStuff.playlists.push({
+                                name: playlist.name,
+                                id: playlist.id
+                            })
+                        })
                     })
-                })
+                break;
+                case "likedLink":
+                    vueStuff.selectedPlaylist = 'liked'
+                    vueStuff.selectedContext = `spotify:user:${user.id}:collection`
+                break;
+                case "albumsLink":
+                    sendRequest('me/albums', 'GET', 'query', {limit: 50}).then(data => {
+                        console.log(data)
+                        data.items.forEach(album => {
+                            album = album.album
+                            if (!vueStuff.selectedPlaylist) vueStuff.selectedPlaylist = album.id
+                            if (!vueStuff.selectedContext) vueStuff.selectedContext = album.uri
+                            vueStuff.currentPlaylistSize = album.total
+                            vueStuff.playlists.push({
+                                name: album.name,
+                                id: album.id,
+                                albumArt: album.images[2].url
+                            })
+                        })
+                    })
+                break;
+                case "artistsLink":
+                    sendRequest('me/following', 'GET', 'query', {type: 'artist', limit: 50}).then(data => {
+                        console.log(data)
+                        data.artists.items.forEach(artist => {
+                            if (!vueStuff.selectedPlaylist) vueStuff.selectedPlaylist = artist.id
+                            if (!vueStuff.selectedContext) vueStuff.selectedContext = artist.uri
+                            vueStuff.currentPlaylistSize = data.total
+                            vueStuff.playlists.push({
+                                name: artist.name,
+                                id: artist.id
+                            })
+                        })
+                    })
+            }
+        },
+        selectNewList(evt) {
+            document.querySelectorAll('.list-options h3').forEach(item => {
+                item.classList.remove('active')
             })
+            evt.target.classList.add('active')
+            this.selectedListType = evt.target.id
         }
     },
     computed: {
@@ -243,11 +414,15 @@ let vueStuff = new Vue({
             } else {
                 return false
             }
-        }
+        },
     },
     watch: {
         selectedPlaylist() {
-            this.updateSongs()
+            if (this.selectedPlaylist) this.updateSongs()
+        },
+        selectedListType() {
+            console.log("UPDATED!!!!!! " + this.selectedListType)
+            this.updateListType()
         }
     },
     el: '.main'
@@ -262,7 +437,7 @@ let startPlayer = async () => {
             'Authorization': `Bearer ${token}`
         }
     })
-    const user = await userFetch.json()
+    window.user = await userFetch.json()
     if (user.error) {
         console.log('Token is not working... attempting to refresh');
         await requestToken('refresh')
@@ -347,7 +522,7 @@ let startPlayer = async () => {
         if (currentSong) {
             vueStuff.albumArt = currentSong.album.images[0].url
         }
-        document.querySelector('#song').textContent = `${currentSong.name} by ${currentSong.artists[0].name}`
+        document.querySelector('#song').textContent = `${currentSong.artists[0].name} - ${currentSong.name}`
         vueStuff.activeSongURI = state.track_window.current_track.uri
     });
 
