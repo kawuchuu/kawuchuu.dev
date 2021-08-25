@@ -26,30 +26,30 @@ let nl = [
 ]
 
 let gc = [
-    'Ig4JSOlgNbw',
-    'kY7Gbcxa1Bg',
-    'B-H6D083baU',
-    'fnRqvPX7CIM',
-    'eTkwAlXSQJo',
-    '0-lHUvnb8qU',
-    'YyMbSLv3vOM',
-    '9i_wJwlyHQI',
-    'HnqGALKqm4s',
-    '89QTfFT5YHE',
-    'mjN3QtyeNBA',
-    'mk6Cve1qIHk',
-    'i6-FkYY_O_o',
-    'gx2tIcs3M-o',
-    'KT5MK2bWIPE',
-    'RX-9L0LnBV8',
-    'EiARr_2O2m4',
-    'bbRxt0x9KDI',
-    'ioHm_SOUcF0',
-    'ejt_xLCwgC0',
-    'VXMvi8AoPLw',
-    '5F9ukR_d1mY',
-    '6deFOq-1z7U',
-    '09L3GiXDLdU'
+    'D4kYl5m4b64',
+    'fmKhqvgdtO8',
+    'RfmwaD0t0Es',
+    'kjvzd8i1bUk',
+    '2L02IwIwZ50',
+    '9CrB7pN6raM',
+    'kJq4qzgs4hc',
+    'c0DQXLKM4x0',
+    'rOQEVbKhZNU',
+    'gGAEwfRJlh4',
+    '69BLvsnWr1w',
+    't_T7EkVM6bg',
+    'BpAUrpW2BSw',
+    'q8rA3TTskHg',
+    'mFJkRbayGwY',
+    'DWUX7uek9vE',
+    'qp1sqfkMWDU',
+    'RCLqUYHWO8Y',
+    '2KrLpPoydCM',
+    'yNs-0aC6ZP8',
+    'e0FS2R7VmOA',
+    'cZD8VkPJ42M',
+    'ZxLTPsUW7QM',
+    'V7OwVLZfE_c'
 ]
 
 let cf = [
@@ -80,30 +80,30 @@ let cf = [
 ]
 
 let nh = [
-    'lqs34Ou0Rw8',
-    'LJhvOKQZqC0',
-    'bgdqH77h4qU',
-    'C1cfkkscrI8',
-    'GnLPAiLYmKw',
-    'dJwg-mWj7xY',
-    'PT3Gx-Ox5Ek',
-    'Zj-z7P-P0eU',
-    'YhpYzNZkg8E',
-    'rw-NhaaC8bU',
-    'mnC8Yj7GUBk',
-    'bnzSJMLDm90',
-    'FuMClV20DDg',
-    'cTMHpVXBWVo',
-    'ALRRqnJdAhc',
-    'Lu7h28H52jM',
-    'jHs6hIDmOFE',
-    'pJvjbosEdHE',
-    'lxgcDP-wppM',
-    'ZMgj30uGeb0',
-    '9n-LArbDkIk',
-    'QEkytL-anQw',
-    'GFBWicff5ZE',
-    'HT-djWRbNN4'
+    'qDnrdeNDRio',
+    'LjrMm_6zmNo',
+    'oPCkJqbTpaA',
+    '0Gpa29MRPys',
+    'ROpWMf0Md6g',
+    '_qSyWo0Tm4U',
+    'lS0XGL2rWTI',
+    'rdVBS1lHDC4',
+    'QIx22FB3FXo',
+    '7Rf6gOt_LdY',
+    'hkP1kOKF2Yk',
+    'AKXMNP23BnA',
+    'KJp488yN3VM',
+    'yWWoDrUZq04',
+    'gD4Hh115gOk',
+    'uhnNzw4x7sE',
+    'cLBhI_9njKw',
+    'vc1zlXMyZow',
+    'WH_rj-YzzXI',
+    'AK5mUK5IQvs',
+    'du10VZTTZp8',
+    'HxXOrY_DtVw',
+    'zANebE1wNjw',
+    '5hVFsARLcV0'
 ]
 
 let game = [gc, cf, nl, nh];
@@ -125,24 +125,23 @@ function onYouTubeIframeAPIReady() {
           'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
         },
-        playerVars: {'autoplay': 1, 'controls': 0, 'start': 0}
+        playerVars: {'autoplay': 0, 'controls': 0, 'start': 0}
     });
 }
 
 function onPlayerReady(event) {
     player.mute();
-    player.loadVideoById(activeGame[parseInt(moment().format('HH'))]);
-    event.target.playVideo();
+    player.cueVideoById(activeGame[parseInt(moment().format('HH'))]);
     setTimeout(() => {
-        player.seekTo(0);
-        player.unMute();
-    }, 500);
+        //player.seekTo(0);
+        //player.unMute();
+    }, 100);
     if (isPaused) {
         player.pauseVideo();
         pauseControl.textContent = 'play_arrow';
     } else {
-        pauseControl.textContent = 'pause';
-        player.playVideo();
+        //pauseControl.textContent = 'pause';
+        //player.playVideo();
     }
     if (isMute) {
         player.mute();
@@ -152,6 +151,8 @@ function onPlayerReady(event) {
         player.unMute();
     }
     updateTitle(activeGameNum);
+    document.querySelector('.cover h1').style.display = 'none'
+    document.querySelector('.cover i').style.display = 'block'
 }
 
 function updateTitle(gamenum) {
@@ -298,3 +299,9 @@ function controlClick(control) {
             break;
     }
 }
+
+document.querySelector('.cover i').addEventListener('click', evt => {
+    pauseControl.textContent = 'pause';
+    player.playVideo();
+    evt.target.parentNode.style.display = 'none'
+})
