@@ -84,6 +84,7 @@ document.querySelector('#selectFile').addEventListener('input', evt => {
     controls.classList.remove('active');
     let audioFile = evt.target.files[0];
     if (!audioFile.type.startsWith('audio')) {
+        fileName.textContent = "You didn't select an audio file!"
         console.error('The file selected is not an audio file.');
         return;
     }
@@ -102,12 +103,14 @@ let readFile = async (buffer, name) => {
         resolve();
     })
     await waitForNewCtx;
-    ctx.decodeAudioData(buffer, newBuffer => {
-        bkBuffer = newBuffer;
-        fileName.textContent = `${name}`;
-        addSeekBy = 0;
-        play(newBuffer, 0);
+    let getBuffer = await ctx.decodeAudioData(buffer).catch(e => {
+        fileName.textContent = "Failed to decode audio data!"
     })
+    if (!getBuffer) return
+    bkBuffer = getBuffer;
+    fileName.textContent = `${name}`;
+    addSeekBy = 0;
+    play(getBuffer, 0);
     console.log('done!');
 }
 
@@ -170,12 +173,12 @@ gainRange.addEventListener('input', evt => {
 })
 
 trebleRange.addEventListener('input', evt => {
-    trebleFilter.gain.value = evt.target.value;
+    trebleFilter.gain.value = evt.target.value - 1;
     document.querySelector('#trebleRange div.item-title span.num').textContent = `${evt.target.value}x`;
 })
 
 bassRange.addEventListener('input', evt => {
-    bassFilter.gain.value = evt.target.value;
+    bassFilter.gain.value = evt.target.value - 1;
     document.querySelector('#bassRange div.item-title span.num').textContent = `${evt.target.value}x`;
 })
 
