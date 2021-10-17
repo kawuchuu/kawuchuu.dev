@@ -58,7 +58,7 @@
                     <div class="status">
                         <div class="file-select">
                             <label for="selectFile">Select File</label>
-                            <input type="file" style="display: none" id="selectFile">
+                            <input autocomplete="false" type="file" style="display: none" id="selectFile">
                             <p>Files selected here are not uploaded to the internet.</p>
                         </div>
                         <div class="divider"></div>
@@ -75,8 +75,11 @@
                                 <i id="pausePlay" class="material-icons" title="Pause/play">play_arrow</i>
                                 <i id="stop" class="material-icons" title="Stop">stop</i>
                             </div>
-                            <!--seeking incomplete-->
-                            <input type="range" style="display: none;" id="seekRange" step=0.5>
+                            <div class="seek-container">
+                                <span id="songCurrent">-:--</span>
+                                <input type="range" id="seekRange" value="0" step=0.5>
+                                <span id="songDuration">-:--</span>
+                            </div>
                         </div>
                     </div>
                     <div id="speedRange" class="control-item">
@@ -85,7 +88,7 @@
                             <span>-</span>
                             <span class="num">1x</span>
                         </div>
-                        <input type="range" min="0" max="3" value="1" step="0.05">
+                        <input type="range" min="0.05" max="3" value="1" step="0.05">
                         <div class="control-btns">
                             <i class="material-icons clear" id="speedClear" title="Reset">update</i>
                             <!-- <i class="material-icons" title="About this effect">info</i> -->

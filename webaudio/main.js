@@ -10,6 +10,8 @@ let convolver;
 let convolverGain;
 let bkBuffer;
 let addSeekBy = 0;
+let isPlaying = false;
+let seekIntervalMain = null;
 
 let speedRange = document.querySelector('#speedRange input');
 let gainRange = document.querySelector('#gainRange input');
@@ -22,12 +24,22 @@ let pausePlay = document.querySelector('#pausePlay');
 let stopBtn = document.querySelector('#stop');
 let controls = document.querySelector('.controls');
 let seekRange = document.querySelector('#seekRange');
+let songDuration = document.querySelector('#songDuration');
+let songCurrent = document.querySelector('#songCurrent');
 
 let seekInterval = () => {
     window.dispatchEvent(seek);
 }
 
-setInterval(seekInterval, 1000);
+const timeFormat = s => {
+    if (isNaN(s)) return '-:--'
+    let min = Math.floor(s / 60);
+    let sec = Math.floor(s - (min * 60));
+    if (sec < 10){ 
+        sec = `0${sec}`;
+    }
+    return `${min}:${sec}`;
+}
 
 let createNewAudioCtx = async hasGotBuffer => {
     let AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -78,6 +90,10 @@ let playingAnimationToggle = enable => {
 document.querySelector('#selectFile').addEventListener('input', evt => {
     if (!evt.target.files[0]) return;
     if (ctx) ctx.close();
+    isPlaying = false
+    clearInterval(seekIntervalMain)
+    songCurrent.textContent = '-:--'
+    songDuration.textContent = '-:--'
     playingAnimationToggle(false);
     fileName.textContent = "Reading file...";
     pausePlay.textContent = 'play_arrow';
@@ -116,7 +132,7 @@ let readFile = async (buffer, name) => {
 
 let play = (buffer, time) => {
     ctxBufferSource.buffer = buffer;
-    ctxBufferSource.loop = true;
+    ctxBufferSource.loop = false;
     ctxBufferSource.playbackRate.value = speedRange.value;
     gainFilter.gain.value = gainRange.value;
     trebleFilter.gain.value = trebleRange.value;
@@ -127,7 +143,7 @@ let play = (buffer, time) => {
                 .connect(ctx.destination);
     console.log(ctxConvolverSource)
     ctxConvolverSource.buffer = buffer;
-    ctxConvolverSource.loop = true;
+    ctxConvolverSource.loop = false;
     ctxConvolverSource.playbackRate.value = speedRange.value;
     convolverGain.gain.value = reverbRange.value;
     ctxConvolverSource.connect(convolver).connect(convolverGain).connect(ctx.destination);
@@ -139,10 +155,23 @@ let play = (buffer, time) => {
         ctxConvolverSource.start(0);
     }
     controls.classList.add('active');
-    seekRange.max = ctxBufferSource.buffer.duration / parseFloat(speedRange.value);
+    seekRange.max = ctxBufferSource.buffer.duration;
+    ctxBufferSource.addEventListener('ended', () => {
+        isPlaying = false
+        doSeek(0)
+    })
     if (ctx.state == 'running') {
         playingAnimationToggle(true);
         pausePlay.textContent = 'pause';
+        if (!isPlaying) {
+            seekRange.value = 0
+            songCurrent.textContent = '0:00'
+        }
+        let thingy = 1000 / parseFloat(speedRange.value)
+        clearInterval(seekIntervalMain)
+        seekIntervalMain = setInterval(seekInterval, thingy);
+        songDuration.textContent = timeFormat(ctxBufferSource.buffer.duration)
+        isPlaying = true
     }
 }
 
@@ -155,15 +184,17 @@ let doSeek = async time => {
         resolve();
     })
     await waitForNewCtx;
-    play(bkBuffer, time / parseFloat(speedRange.value));
+    play(bkBuffer, time);
 }
 
 speedRange.addEventListener('input', evt => {
     ctxBufferSource.playbackRate.value = evt.target.value;
     ctxConvolverSource.playbackRate.value = evt.target.value;
-    clearInterval(seekInterval);
-    setInterval(seekInterval, parseFloat(evt.target.value) * 1000);
-    seekRange.max = ctxBufferSource.buffer.duration / parseFloat(evt.target.value);
+    clearInterval(seekIntervalMain);
+    let thingy = 1000 / parseFloat(evt.target.value)
+    seekIntervalMain = setInterval(seekInterval, thingy);
+    console.log(thingy)
+    //seekRange.max = ctxBufferSource.buffer.duration / parseFloat(evt.target.value);
     document.querySelector('#speedRange div.item-title span.num').textContent = `${evt.target.value}x`;
 })
 
@@ -198,15 +229,24 @@ pausePlay.addEventListener('click', evt => {
         ctx.suspend();
         evt.target.textContent = 'play_arrow';
         playingAnimationToggle(false);
+        isPlaying = false
+        clearInterval(seekIntervalMain)
     } else if (ctx.state == 'suspended') {
         ctx.resume();
         evt.target.textContent = 'pause'
         playingAnimationToggle(true);
+        let thingy = 1000 / parseFloat(speedRange.value)
+        seekIntervalMain = setInterval(seekInterval, thingy);
+        isPlaying = true
     }
 })
 
 stopBtn.addEventListener('click', evt => {
-    ctx.close();
+    isPlaying = false
+    clearInterval(seekIntervalMain)
+    songCurrent.textContent = '-:--'
+    songDuration.textContent = '-:--'
+    if (ctx) ctx.close();
     fileName.textContent = "No song playing...";
     playingAnimationToggle(false);
     pausePlay.textContent = 'play_arrow';
@@ -219,7 +259,8 @@ const seek = new Event('seek');
 
 let seekEvtFunc = () => {
     if (ctx) {
-        seekRange.value = parseFloat(ctx.currentTime) + parseFloat(addSeekBy);
+        seekRange.value++;
+        songCurrent.textContent = timeFormat(seekRange.value)
     }
 }
 
@@ -231,6 +272,10 @@ seekRange.addEventListener('mousedown', () => {
 
 seekRange.addEventListener('mouseup', () => {
     window.addEventListener('seek', seekEvtFunc);
+})
+
+seekRange.addEventListener('input', e => {
+    songCurrent.textContent = timeFormat(e.target.value)
 })
 
 seekRange.addEventListener('change', e => {
@@ -276,8 +321,8 @@ document.querySelectorAll('.clear').forEach(el => {
                 speedRange.value = 1;
                 ctxBufferSource.playbackRate.value = 1;
                 ctxConvolverSource.playbackRate.value = 1;
-                clearInterval(seekInterval);
-                setInterval(seekInterval, parseFloat(1) * 1000);
+                clearInterval(seekIntervalMain);
+                seekIntervalMain = setInterval(seekInterval, parseFloat(1) * 1000);
                 seekRange.max = ctxBufferSource.buffer.duration / parseFloat(1);
                 document.querySelector('#speedRange div.item-title span.num').textContent = `1x`;
             })

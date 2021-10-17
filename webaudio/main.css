@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 :root {
-    --wa-bg: #070707;
+    --wa-bg: #000000;
     --wa-txt: white;
     --wa-hl: rgba(255, 255, 255, 0.10);
-    --wa-bgop: rgba(7, 7, 7, 0.9);
+    --wa-bgop: rgba(0, 0, 0, 0.5);
 /*     scrollbar-color: black;
     scrollbar-width: thin; */
 }
@@ -84,6 +84,8 @@ div.nav-bar-container a:active span, .ontop a:active span {
 div.nav-bar {
     padding: 0px 20px;
     background: var(--wa-bgop);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     position: fixed;
     z-index: 2;
     width: calc(100% - 40px);
@@ -105,7 +107,7 @@ div.content {
 h1 {
     font-size: 72px;
     font-family: 'Inter';
-    letter-spacing: -2px;
+    letter-spacing: -0.03em;
     margin-bottom: 5px;
     margin-top: 0px;
 }
@@ -125,7 +127,7 @@ div.controls {
     justify-content: center;
 }
 
-div.controls.active div.control-item {
+div.controls.active div.control-item div.item-title, div.controls.active div.control-item input, div.controls.active div.control-item div.control-btns {
     opacity: 1;
     pointer-events: all;
 }
@@ -134,22 +136,43 @@ div.status {
     min-height: 115px;
     grid-column: 1 / 4;
     border: 1px solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 40px 2fr;
+    gap: 20px;
     padding: 0 40px;
     background: var(--wa-bgop);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+#stop, div.seek-container {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+div.controls.active #stop, div.controls.active div.seek-container {
+    opacity: 1;
+    pointer-events: all;
+}
+
+div.control-item div.item-title, div.control-item input, div.control-item div.control-btns {
+    opacity: 0.35;
 }
 
 div.control-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid;
+    border: 1px solid rgba(255,255,255,.35);
     padding: 0px 30px;
-    opacity: 0.35;
     pointer-events: none;
     background: var(--wa-bgop);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+div.controls.active div.control-item {
+    border-color: white;
 }
 
 div.control-item h2 {
@@ -240,11 +263,14 @@ input[type=range]::-moz-range-thumb {
 }
 
 .file-select {
+    align-self: center;
+    justify-self: center;
     text-align: center;
     min-width: 48%;
 }
 
 label, button {
+    color: white;
     padding: 10px 15px;
     border: solid 1px var(--wa-txt);
     border-radius: 5px;
@@ -276,11 +302,13 @@ label:active, button:active {
     width: 1px;
     height: 80%;
     border-left: solid 1px var(--wa-txt);
-    margin: 0px 40px;
+    align-self: center;
+    justify-self: center;
 }
 
 .status-controls {
     min-width: 48%;
+    align-self: center;
 }
 
 .playing-ani {
@@ -360,6 +388,21 @@ label:active, button:active {
 
 .song-icon-controls i:first-child {
     margin-left: 0px;
+}
+
+.seek-container {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 60px 1fr 60px;
+    align-items: center;
+}
+
+#songDuration {
+    margin-left: 15px;
+}
+
+#songCurrent {
+    margin-right: 15px;
 }
 
 div.wrapper-ontop {
@@ -469,8 +512,15 @@ div.wrapper-ontop.disclaimer.show {
 
 @media (max-width: 750px) {
     div.status {
-        flex-direction: column;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 10px 1fr;
         height: 325px;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    div.file-select {
+        align-self: flex-end;
     }
 
     div.divider {
@@ -478,11 +528,12 @@ div.wrapper-ontop.disclaimer.show {
         width: 100%;
         border-left: none;
         border-bottom: solid 1px var(--wa-txt);
-        margin: 30px 0px;
     }
 
     div.status-controls {
         text-align: center;
+        align-self: flex-start;
+
     }
 
     .song-name {
@@ -498,8 +549,13 @@ div.wrapper-ontop.disclaimer.show {
     }
 
     h1 {
-        font-size: 54px;
+        font-size: 3em;
         margin-top: 10px;
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
     }
 
     .bg-container {
