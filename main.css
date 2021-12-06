@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=DM+Serif+Display&display=swap');
+
 body {
     font-family: Inter;
     margin: 0;
@@ -35,7 +37,7 @@ h1 {
 
 .section-right {
     width: calc(50% - 190px);
-    padding: 100px 75px 0 75px;
+    padding: 70px 75px 0 75px;
     transform: translateX(40px);
 }
 
@@ -375,4 +377,43 @@ img.dots1 {
     .section-right {
         padding-top: 40px;
     }
+}
+
+
+/* New notice thingy */
+
+.notice-top {
+    position: relative;
+    color: black;
+    padding: 30px 35px;
+
+    font-family: 'DM Sans', 'Inter', sans-serif;
+    text-align: left;
+    margin-bottom: 80px;
+    border-radius: 5px;
+
+    background-color: #d3ffed;
+    background-image: url('./assets/circle.svg');
+    background-repeat: no-repeat;
+    background-position: 120% 25%;
+    background-size: 50%;
+}
+
+.notice-top h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0px 0px 10px;
+    font-size: 1rem;
+    color: #4b705f;
+}
+
+.notice-top h1 {
+    font-size: 2.15em;
+    font-family: 'DM Serif Display';
+    font-weight: normal;
+}
+
+.notice-top p {
+    margin-bottom: 0px;
+    font-size: 1.1em;
 }
