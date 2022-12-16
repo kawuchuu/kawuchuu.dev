@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kawuchuu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=DM+Serif+Display&display=swap');
+
+        body {
+            margin: 0px;
+            font-family: 'DM Sans', 'Inter', 'Roboto', sans-serif;
+            text-align: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', 'DM Sans', 'Inter', 'Roboto', sans-serif;
+            font-weight: normal;
+            font-size: 4rem;
+            margin: 10px 0px;
+            line-height: 1em;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin: 0px 0px 10px;
+            font-size: 1.4rem;
+            color: #4b705f;
+        }
+
+        h3 {
+            font-weight: normal;
+            font-size: 1.5em;
+            margin-top: 40px;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: -1;
+        }
+
+        .circle {
+            background-image: url('/assets/circle.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .circle.one {
+            width: 110%;
+            height: 110%;
+            transform: translate(-20%, -35%);
+        }
+
+        .circle.two {
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-position: right;
+            transform: translate(20%, 20%);
+        }
+
+        .links {
+            width: 90vw;
+        }
+
+        .links, .details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .group {
+            display: flex;
+            justify-content: center;
+            width: 60%;
+            padding: 12px 0px;
+        }
+
+        .group:not(:last-child) {
+            border-bottom: solid 1px #96c2ae;
+        }
+
+        .group a {
+            color: #4b705f;
+            font-size: 1.4em;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.15s;
+            transition-property: background-color text-decoration;
+        }
+
+        .group a:hover {
+            text-decoration: underline;
+            background-color: #dafff1;
+        }
+
+        @media (max-width: 1200px) {
+            h1 {
+                margin: 10px 60px;
+            }
+
+            h3 {
+                margin-left: 60px;
+                margin-right: 60px;
+            }
+
+            .group {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 810px) {
+            h1 {
+                font-size: 3.1rem;
+                margin: 8px 20px;
+            }
+
+            h2 {
+                font-size: 1em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .group {
+                width: 95%;
+            }
+
+            .group a {
+                font-size: 1em;
+                padding: 5px 15px;
+                text-decoration: underline;
+            }
+
+            .group a:hover {
+                background-color: none;
+            }
+
+            .circle.one {
+                transform: translate(-20%, -25%);
+            }
+
+            .circle.two {
+                transform: translate(30%, 40%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="details">
+            <h2>Under Construction</h2>
+            <h1>A new, improved website is on the way.</h1>
+            <h3>Be sure to check back soon! For the time being, take a visit to the links below.</h3>
+            <div class="links">
+                <div class="group">
+                    <a href="https://github.com/kawuchuu/firetail">Firetail</a>
+                    <a href="https://github.com/kawuchuu/shinka">Lorikeet (Shinka)</a>
+                </div>
+                <div class="group">
+                    <a href="/webaudio/">Web Audio API</a>
+                    <a href="/actime/">Animal Crossing Time</a>
+                    <a href="/spotify/">Spotify Web Playback SDK</a>
+                </div>
+            </div>
+        </div>
+        <div class="bg">
+            <div class="circle one"></div>
+            <div class="circle two"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -371,3 +371,7 @@ document.querySelector('#closeDisclaimer').addEventListener('click', () => {
     disclaimer.classList.add('hide')
     localStorage.setItem('wa-disclaimer-accept', true)
 })
+
+document.querySelector('#disclaimerShow').addEventListener('click', () => {
+    disclaimer.classList.add('show')
+})

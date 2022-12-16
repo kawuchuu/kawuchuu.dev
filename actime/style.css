@@ -210,3 +210,11 @@ div.nav-bar {
     /* background: #ffffffc2; */
     backdrop-filter: blur(10px);
 }
+
+.footnote {
+    position: absolute;
+    bottom: 0;
+    opacity: 0.8;
+    font-size: 0.7em;
+    user-select: text;
+}
