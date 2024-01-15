@@ -99,7 +99,7 @@ document.querySelector('#selectFile').addEventListener('input', evt => {
     pausePlay.textContent = 'play_arrow';
     controls.classList.remove('active');
     let audioFile = evt.target.files[0];
-    if (!audioFile.type.startsWith('audio')) {
+    if (!audioFile.type.startsWith('audio') && !audioFile.type.startsWith('video')) {
         fileName.textContent = "You didn't select an audio file!"
         console.error('The file selected is not an audio file.');
         return;

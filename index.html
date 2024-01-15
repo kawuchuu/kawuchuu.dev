@@ -3,39 +3,45 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="main.css" rel="stylesheet">
-        <meta name="color-scheme" content="dark">
         <title>kawuchuu</title>
-        <script src="assets/particles.min.js"></script>
     </head>
     <body>
-        <div class="bg-cover">
-            <div class="coverbg secondary"></div>
-            <div class="particles" id="particles-js"></div>
+        <div class="noise"></div>
+        <div class="coverbg secondary"></div>
+        <div class="bg">
+            <div class="list-gradient-fade"></div>
+            <div class="bg-banner"></div>
         </div>
         <div class="content">
             <div class="section-top">
                 <div class="top-leftside">
-                    <div class="mobile-bg">
-                        <div class="mobile-cover"></div>
-                    </div>
                     <div class="fixed">
                         <h1 class="main-heading">Hi, I'm kawuchuu</h1>
-                        <h2>wowee welcome!</h2>
+                        <h2>wahoo</h2>
                     </div>
                 </div>
                 <div class="section-right">
-                    <div class="notice-top">
+                    <!--<div class="notice-top">
                         <div class="details">
                             <h2>Announcement</h2>
                             <h1>A new, improved website is on the way.</h1>
                             <p>Be sure to check back soon!</p>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="section-info">
                         <h1>About Me</h1>
-                        <p>I love design and programming (sometimes). That's all you need to know about me.</p>
+                        <p>I'm a designer and programmer who primarily works on front-end web-based projects.</p>
+                        <p>Here's some quick facts about myself:</p>
+                        <ul>
+                            <li>I'm from Australia.</li>
+                            <li>Currently studying UX interaction design at university.</li>
+                            <li>My 'flagship' project is Firetail, a music player.</li>
+                            <li>You'll probably see me playing Nintendo games a lot, especially Zelda games.</li>
+                            <li>I'll probably listen to any song someone throws at me, I don't mind. Well most songs.</li>
+                            <li>I often pay way too much attention to stuff that's most definitely insignificant. Sorry in advance.</li>
+                        </ul>
                     </div>
                     <div class="section-projects">
                         <h1>Current Projects</h1>
@@ -49,7 +55,16 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="https://github.com/kawuchuu/wattle" target="_blank">
+                            <a href="https://github.com/kawuchuu/seagull" target="_blank">
+                                <div class="project-item clickable">
+                                    <div class="icon" style="background-image: url('/assets/seagull.jpg');"></div>
+                                    <div class="item-info">
+                                        <h3>Seagull</h3>
+                                        <p>A beautiful weather app</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <!--<a href="https://github.com/kawuchuu/wattle" target="_blank">
                                 <div class="project-item clickable">
                                     <div class="icon" style="background-image: url('/assets/breakreminder.svg');"></div>
                                     <div class="item-info">
@@ -75,12 +90,12 @@
                                         <p>A beautiful, functional, easy-to-use YouTube downloader [icon pending]</p>
                                     </div>
                                 </div>
-                            </a>
+                            </a>-->
                         </div>
                     </div>
                     <div class="section-projects">
                         <h1>Web Apps</h1>
-                        <p>Pretty much all of these are experimental so yeah</p>
+                        <p>These are all experimental and aren't regularly updated.</p>
                         <div class="webapp-collection">
                             <a href="/webaudio">
                                 <div class="webapp-item">
@@ -119,23 +134,6 @@
                     <div class="section-socials">
                         <h1>Find me elsewhere</h1>
                         <div class="group-socials">
-                            <a href="https://twitter.com/kawuchuu" target="_blank">
-                                <div class="item-scmedia">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path>
-                                    </svg>
-                                    <span>@kawuchuu</span>
-                                </div>
-                            </a>
-                            <a style="display: none;" rel="me" href="https://mstdn.social/@kawuchuu">
-                                <div class="item-scmedia">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="61.076954mm" height="65.47831mm" viewBox="0 0 216.4144 232.00976">
-                                        <path d="M211.80734 139.0875c-3.18125 16.36625-28.4925 34.2775-57.5625 37.74875-15.15875 1.80875-30.08375 3.47125-45.99875 2.74125-26.0275-1.1925-46.565-6.2125-46.565-6.2125 0 2.53375.15625 4.94625.46875 7.2025 3.38375 25.68625 25.47 27.225 46.39125 27.9425 21.11625.7225 39.91875-5.20625 39.91875-5.20625l.8675 19.09s-14.77 7.93125-41.08125 9.39c-14.50875.7975-32.52375-.365-53.50625-5.91875C9.23234 213.82 1.40609 165.31125.20859 116.09125c-.365-14.61375-.14-28.39375-.14-39.91875 0-50.33 32.97625-65.0825 32.97625-65.0825C49.67234 3.45375 78.20359.2425 107.86484 0h.72875c29.66125.2425 58.21125 3.45375 74.8375 11.09 0 0 32.975 14.7525 32.975 65.0825 0 0 .41375 37.13375-4.59875 62.915"/>
-                                        <path fill="#111111" d="M177.50984 80.077v60.94125h-24.14375v-59.15c0-12.46875-5.24625-18.7975-15.74-18.7975-11.6025 0-17.4175 7.5075-17.4175 22.3525v32.37625H96.20734V85.42325c0-14.845-5.81625-22.3525-17.41875-22.3525-10.49375 0-15.74 6.32875-15.74 18.7975v59.15H38.90484V80.077c0-12.455 3.17125-22.3525 9.54125-29.675 6.56875-7.3225 15.17125-11.07625 25.85-11.07625 12.355 0 21.71125 4.74875 27.8975 14.2475l6.01375 10.08125 6.015-10.08125c6.185-9.49875 15.54125-14.2475 27.8975-14.2475 10.6775 0 19.28 3.75375 25.85 11.07625 6.36875 7.3225 9.54 17.22 9.54 29.675"/>
-                                    </svg>
-                                    <span>@kawuchuu@mstdn.social</span>
-                                </div>
-                            </a>
                             <a href="https://github.com/kawuchuu" target="_blank">
                                 <div class="item-scmedia">
                                     <svg viewbox="0 0 16 16">
@@ -144,10 +142,35 @@
                                     <span>kawuchuu</span>
                                 </div>
                             </a>
+                            <a href="https://bsky.app/profile/kawuchuu.dev" target="_blank">
+                                <div class="item-scmedia">
+                                    <svg width="36" height="32" viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M254.896 184.158C252.81 183.926 250.733 183.645 248.671 183.315C250.773 183.574 252.849 183.855 254.896 184.158Z"/>
+                                        <path d="M180 141.964C163.699 110.262 119.308 51.1817 78.0347 22.044C38.4971 -5.86834 23.414 -1.03207 13.526 3.43594C2.08093 8.60755 0 26.1785 0 36.5164C0 46.8542 5.66748 121.272 9.36416 133.694C21.5786 174.738 65.0603 188.607 105.104 184.156C107.151 183.852 109.227 183.572 111.329 183.312C109.267 183.642 107.19 183.924 105.104 184.156C46.4204 192.847 -5.69621 214.233 62.6582 290.33C137.848 368.18 165.705 273.637 180 225.702C194.295 273.637 210.76 364.771 295.995 290.33C360 225.702 313.58 192.85 254.896 184.158C252.81 183.926 250.733 183.645 248.671 183.315C250.773 183.574 252.849 183.855 254.896 184.158C294.94 188.61 338.421 174.74 350.636 133.697C354.333 121.275 360 46.8568 360 36.519C360 26.1811 357.919 8.61012 346.474 3.43851C336.586 -1.02949 321.503 -5.86576 281.965 22.0466C240.692 51.1843 196.301 110.262 180 141.964Z"/>
+                                    </svg>
+                                    <span>@kawuchuu.dev</span>
+                                </div>
+                            </a>
+                            <a rel="me" href="https://mstdn.social/@kawuchuu" target="_blank">
+                                <div class="item-scmedia">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="61.076954mm" height="65.47831mm" viewBox="0 0 216.4144 232.00976">
+                                        <path d="M211.80734 139.0875c-3.18125 16.36625-28.4925 34.2775-57.5625 37.74875-15.15875 1.80875-30.08375 3.47125-45.99875 2.74125-26.0275-1.1925-46.565-6.2125-46.565-6.2125 0 2.53375.15625 4.94625.46875 7.2025 3.38375 25.68625 25.47 27.225 46.39125 27.9425 21.11625.7225 39.91875-5.20625 39.91875-5.20625l.8675 19.09s-14.77 7.93125-41.08125 9.39c-14.50875.7975-32.52375-.365-53.50625-5.91875C9.23234 213.82 1.40609 165.31125.20859 116.09125c-.365-14.61375-.14-28.39375-.14-39.91875 0-50.33 32.97625-65.0825 32.97625-65.0825C49.67234 3.45375 78.20359.2425 107.86484 0h.72875c29.66125.2425 58.21125 3.45375 74.8375 11.09 0 0 32.975 14.7525 32.975 65.0825 0 0 .41375 37.13375-4.59875 62.915"/>
+                                        <path fill="white" d="M177.50984 80.077v60.94125h-24.14375v-59.15c0-12.46875-5.24625-18.7975-15.74-18.7975-11.6025 0-17.4175 7.5075-17.4175 22.3525v32.37625H96.20734V85.42325c0-14.845-5.81625-22.3525-17.41875-22.3525-10.49375 0-15.74 6.32875-15.74 18.7975v59.15H38.90484V80.077c0-12.455 3.17125-22.3525 9.54125-29.675 6.56875-7.3225 15.17125-11.07625 25.85-11.07625 12.355 0 21.71125 4.74875 27.8975 14.2475l6.01375 10.08125 6.015-10.08125c6.185-9.49875 15.54125-14.2475 27.8975-14.2475 10.6775 0 19.28 3.75375 25.85 11.07625 6.36875 7.3225 9.54 17.22 9.54 29.675"/>
+                                    </svg>
+                                    <span>@kawuchuu@mstdn.social</span>
+                                </div>
+                            </a>
+                            <a href="https://twitter.com/kawuchuu" target="_blank">
+                                <div class="item-scmedia">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path>
+                                    </svg>
+                                    <span>@kawuchuu</span>
+                                </div>
+                            </a>
                         </div>
+                        <p>&copy; 2024 kawuchuu</p>
                         <p>Black Lives Matter.<br>LGBTQ+ rights are human rights.</p>
-                        <p>If you don't "agree" with the above, please do not contact me.</p>
-                        <p>Copyright &copy; 2022 kawuchuu</p>
                     </div>
                 </div>
             </div>
@@ -157,22 +180,6 @@
                 console.log('IE detected');
                 document.body.innerHTML = "<h1>This browser is NOT supported. Please use an updated browser.</h1>"
             }
-        </script>
-        <script>
-            particlesJS.load('particles-js', 'assets/particlesjs-config.json')
-
-            document.querySelectorAll('.item-scmedia').forEach(f => {
-                f.addEventListener('mouseover', evt => {
-                    if (document.body.clientWidth > 540) {
-                        evt.target.style.width = (evt.target.children[1].clientWidth + 45) + 'px';
-                        evt.target.children[1].style.opacity = 1;
-                    }
-                });
-                f.addEventListener('mouseleave', evt => {
-                    evt.target.style.width = '30px';
-                    evt.target.children[1].style.opacity = 0;
-                })
-            })
         </script>
     </body>
 </html>
